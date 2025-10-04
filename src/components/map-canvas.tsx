@@ -1,9 +1,16 @@
 import { useTheme } from "next-themes";
 import React, { useRef, useEffect, useCallback } from "react";
-import { buildings } from "../constants/rates";
 import { Box } from "@chakra-ui/react";
+import { Building } from "../models/building";
 
 const DEFAULT_COLOR = "#cccccc";
+
+const buildings: Building[] = [
+  {
+    name: "霍英东体育馆",
+    path: "M290.372,150.124 L350.278,180.234 L370.112,240.183 L320.174,270.122 Z",
+  },
+]; // TODO: read from external file
 
 function getLabelPos(path: string): [number, number] {
   const match = path.match(/M\s*([-\d.]+),([-\d.]+)/i);
@@ -26,7 +33,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   selectedColors,
   setSelectedColors,
 }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -36,12 +43,14 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // clear the paint area
     const dpr = window.devicePixelRatio || 1;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.scale(dpr, dpr);
 
     for (const building of buildings) {
+      // draw building
       const path2d = new Path2D(building.path);
       ctx.fillStyle = selectedColors[building.name] || DEFAULT_COLOR;
       ctx.fill(path2d);
@@ -49,7 +58,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       ctx.lineWidth = 2;
       ctx.stroke(path2d);
 
-      // 绘制建筑物名称
+      // draw building label
       const [x, y] = getLabelPos(building.path);
       ctx.font = "16px Arial";
       ctx.fillStyle = theme === "dark" ? "#fff" : "#333";
@@ -61,17 +70,21 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     (e: React.MouseEvent<HTMLCanvasElement>) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
       const rect = canvas.getBoundingClientRect();
       const dpr = window.devicePixelRatio || 1;
       const x = (e.clientX - rect.left) * dpr;
       const y = (e.clientY - rect.top) * dpr;
+
       for (const building of buildings) {
         const path2d = new Path2D(building.path);
-        const ctx = canvas.getContext("2d");
-        if (ctx && ctx.isPointInPath(path2d, x, y)) {
+        if (ctx.isPointInPath(path2d, x, y)) {
           setSelectedColors((prev) => {
             const cur = prev[building.name];
             if (cur === color) {
+              // toggle off
               const copy = { ...prev };
               delete copy[building.name];
               return copy;
@@ -89,6 +102,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (canvas && container) {
+      // init canvas size
       const dpr = window.devicePixelRatio || 1;
       const rect = container.getBoundingClientRect();
       canvas.width = rect.width * dpr;

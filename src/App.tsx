@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
 import { Flex, VStack } from "@chakra-ui/react";
 import TitleBar from "@/components/titlebar";
@@ -18,9 +18,11 @@ const App: React.FC = () => {
   }>({});
   const [scale, setScale] = useState(1);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
-      const { innerWidth: width, innerHeight: height } = window;
+      const viewport = window.visualViewport;
+      const width = viewport ? viewport.width : window.innerWidth;
+      const height = viewport ? viewport.height : window.innerHeight;
       console.log("Window size:", width, height);
       let widthScale = (width - 50) / MAP.size[0];
       let heightScale = (height - 120) / MAP.size[1];
@@ -38,8 +40,8 @@ const App: React.FC = () => {
       gap="2"
       direction="column"
       justify="space-between"
-      width="100vw"
-      height="100vh"
+      width="100dvw"
+      height="100dvh"
       backgroundColor={theme.theme === "dark" ? "gray.900" : "pink.subtle"}
     >
       <TitleBar />

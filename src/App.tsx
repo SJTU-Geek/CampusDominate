@@ -10,12 +10,14 @@ const App: React.FC = () => {
   const [selectedColors, setSelectedColors] = useState<{
     [name: string]: string;
   }>({});
+  const [scale, setScale] = useState(0.8);
 
   return (
     <Flex gap="2" direction="column" justify="space-between">
       <TitleBar color={color} onColorChange={setColor} />
       <MapCanvas
         color={color}
+        scale={scale}
         selectedColors={selectedColors}
         setSelectedColors={setSelectedColors}
       />

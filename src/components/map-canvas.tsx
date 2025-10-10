@@ -1,16 +1,10 @@
 import { useTheme } from "next-themes";
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useState } from "react";
 import { Box } from "@chakra-ui/react";
-import { Building } from "../models/building";
+import { MAP } from "@/models/map-data";
+import { buildPathFromRelativePoints, buildPathFromRelativePointsAndTranslate } from "@/utils/shape";
 
 const DEFAULT_COLOR = "#cccccc";
-
-const buildings: Building[] = [
-  {
-    name: "霍英东体育馆",
-    path: "M290.372,150.124 L350.278,180.234 L370.112,240.183 L320.174,270.122 Z",
-  },
-]; // TODO: read from external file
 
 function getLabelPos(path: string): [number, number] {
   const match = path.match(/M\s*([-\d.]+),([-\d.]+)/i);
@@ -22,6 +16,7 @@ function getLabelPos(path: string): [number, number] {
 
 interface MapCanvasProps {
   color: string;
+  scale: number;
   selectedColors: { [name: string]: string };
   setSelectedColors: React.Dispatch<
     React.SetStateAction<{ [name: string]: string }>
@@ -30,6 +25,7 @@ interface MapCanvasProps {
 
 const MapCanvas: React.FC<MapCanvasProps> = ({
   color,
+  scale,
   selectedColors,
   setSelectedColors,
 }) => {
@@ -48,21 +44,56 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.scale(dpr, dpr);
+    ctx.scale(scale, scale);
+    ctx.textBaseline = "top";
 
-    for (const building of buildings) {
+    const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
+    for (const area of mapAreas) {
       // draw building
-      const path2d = new Path2D(building.path);
-      ctx.fillStyle = selectedColors[building.name] || DEFAULT_COLOR;
+      const path2d = new Path2D(buildPathFromRelativePoints(area.size, area.points!));
+      ctx.translate(area.transform ? area.transform[0] : 0, area.transform ? area.transform[1] : 0);
+      ctx.fillStyle = selectedColors[area.name] || DEFAULT_COLOR;
       ctx.fill(path2d);
       ctx.strokeStyle = theme === "dark" ? "#fff" : "#333";
       ctx.lineWidth = 2;
       ctx.stroke(path2d);
-
-      // draw building label
-      const [x, y] = getLabelPos(building.path);
-      ctx.font = "16px Arial";
+      ctx.translate(-(area.transform ? area.transform[0] : 0), -(area.transform ? area.transform[1] : 0));
+    }
+    const mapLabels = MAP.layers.find((layer) => layer.name === "label")?.layers!;
+    for (const label of mapLabels) {
+      let labelLines = [];
+      let maxWidth = 0; 
+      if (label.text!.includes("\n")) {
+        labelLines = label.text!.split("\n");
+        maxWidth = ctx.measureText(label.text!).width;
+      }
+      else {
+        let tmpText = label.text!;
+        while (tmpText.length > 0) {
+          for (let len = tmpText.length; len > 0; len--) {
+            const substr = tmpText.substring(0, len);
+            const width = ctx.measureText(substr).width;
+            if (width <= label.size[0] || len === 1) {
+              if (width > maxWidth) maxWidth = width;
+              labelLines.push(substr);
+              tmpText = tmpText.substring(len);
+              break;
+            }
+          }
+        }
+      }
+      const totalHeight = labelLines.length * 14; // assuming 14px line height
+      const totalWidth = maxWidth;
+      ctx.font = "14px Sans-serif";
       ctx.fillStyle = theme === "dark" ? "#fff" : "#333";
-      ctx.fillText(building.name, x + 5, y - 5);
+      for (let i = 0; i < labelLines.length; i++) {
+        const text = labelLines[i];
+        const lineWidth = ctx.measureText(text).width;
+        const transform = label.transform ?? [0, 0];
+        const x = transform[0] + (label.size[0] - lineWidth) / 2; // center align
+        const y = transform[1] + (label.size[1] - totalHeight) / 2 + i * 14;
+        ctx.fillText(text, x, y);
+      }
     }
   }, [selectedColors, color, theme]);
 
@@ -78,18 +109,19 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const x = (e.clientX - rect.left) * dpr;
       const y = (e.clientY - rect.top) * dpr;
 
-      for (const building of buildings) {
-        const path2d = new Path2D(building.path);
+      const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
+      for (const area of mapAreas) {
+        const path2d = new Path2D(buildPathFromRelativePointsAndTranslate(area.size, area.points!, area.transform ?? [0, 0]));
         if (ctx.isPointInPath(path2d, x, y)) {
           setSelectedColors((prev) => {
-            const cur = prev[building.name];
+            const cur = prev[area.name];
             if (cur === color) {
               // toggle off
               const copy = { ...prev };
-              delete copy[building.name];
+              delete copy[area.name];
               return copy;
             }
-            return { ...prev, [building.name]: color };
+            return { ...prev, [area.name]: color };
           });
           break;
         }

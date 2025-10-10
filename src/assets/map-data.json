@@ -1,0 +1,3192 @@
+{
+  "_t": "GROUP",
+  "id": "uQs88-uROUWJ_odHEypmZg",
+  "name": "sjtu-map",
+  "expand": true,
+  "size": [1133,624],
+  "export": [
+    {
+      "format": "svg"
+    }
+  ],
+  "skipConstraints": true,
+  "layers": [
+    {
+      "_t": "GROUP",
+      "id": "lrM_oKwxOEePM-NoEwpWPw",
+      "name": "area",
+      "size": [1133,624],
+      "skipConstraints": true,
+      "layers": [
+        {
+          "_t": "PATH",
+          "id": "widxWG3CoEigxITe3FiMbw",
+          "name": "霍英东体育馆",
+          "transform": [0,25],
+          "size": [127,96],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "5NJNFkEOrUWyPoHxEu7O6w",
+          "name": "北鲲园",
+          "size": [127,21],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "mPUpocaPXU6JbVFoHzxrWQ",
+          "name": "西五区学生公寓",
+          "transform": [131,25],
+          "size": [106,96],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "CJC6PqX0jkSsXEVy9FDCYQ",
+          "name": "西四区学生公寓",
+          "transform": [241,25],
+          "size": [95,96],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "bcsidDERFU2BBsAiUgyPAQ",
+          "name": "理科实验楼群",
+          "transform": [0,125],
+          "size": [88,82],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "0PnfOYwex02L4tNcTMMtxQ",
+          "name": "李政道图书馆",
+          "transform": [92,125],
+          "size": [35,82],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "eZH71OIbhEaGaHro9L_q0g",
+          "name": "第四餐饮大楼",
+          "transform": [131,125],
+          "size": [40,82],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "IDDpU0ghkEeDYOjpiC_xvg",
+          "name": "西三区学生公寓",
+          "transform": [175,125],
+          "size": [161,82],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Ki8h_TYojUy5JySuViM1kQ",
+          "name": "气膜体育中心",
+          "transform": [340,25],
+          "size": [36,96],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "FVfhBXKKvk6oTzENw4C3_A",
+          "name": "篮球场",
+          "transform": [340,125],
+          "size": [36,82],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "wm2YPGFxb0uPPQQ4zCVzVA",
+          "name": "学生创新中心",
+          "transform": [120,211],
+          "size": [88,52],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[0.9999999,0],[1,1],[0,0.99668765]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "GuoFOWAUgUieVsyCgvUijQ",
+          "name": "材料科学与工程学院",
+          "transform": [0,248],
+          "size": [116,94],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[0.99637693,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "NxavRDMnuEeGOGi9xbGBKw",
+          "name": "巴黎卓越工程师学院",
+          "transform": [212,211],
+          "size": [38,52],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "zvrVERRx8k22oX_aHWF9Xw",
+          "name": "环境科学与工程学院",
+          "transform": [254,211],
+          "size": [38,52],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "XbfhgePeY0CWjv_qaaRcKw",
+          "name": "西二区学生公寓",
+          "transform": [296,245],
+          "size": [79,65],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[0.99999994,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "J4X59dR_d0C_Mv18jqp4yQ",
+          "name": "玉兰苑",
+          "transform": [296,314],
+          "size": [47,28],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "ldUvtKJ3qkaDTZcO3sEW2g",
+          "name": "化学化工学院",
+          "transform": [120,267],
+          "size": [172,75],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "z8spYCdVY0mh5fL_LK8fpA",
+          "name": "致远游泳馆",
+          "transform": [0,371],
+          "size": [51,43],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "xoE6TEd9zE2YZKk7N8VP1w",
+          "name": "南洋足球公园",
+          "transform": [55,371],
+          "size": [51,43],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "SCkBnmDSske3jkz4rXeHmQ",
+          "name": "胡法光体育场",
+          "transform": [0,418],
+          "size": [129,134],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "M4LOa1jczEyLZ0ES952JUQ",
+          "name": "胡晓明网球场",
+          "transform": [0,556],
+          "size": [91,35],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "UFG5T8B1AUm428MLigg10w",
+          "name": "菁菁堂",
+          "transform": [95,556],
+          "size": [50,35],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "mEKsA3hLJUKuf3utvmwQpw",
+          "name": "包玉刚图书馆",
+          "transform": [176,346],
+          "size": [52,57],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Y-rozLquGkCHQFPc6k02sg",
+          "name": "程及美术馆",
+          "transform": [127,369],
+          "size": [45,34],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "jMnAE-7DYEmHO4kJP58bSw",
+          "name": "溥渊未来技术学院",
+          "transform": [232,346],
+          "size": [44,57],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "UFrEo6jiwkKNWMFOuOADqw",
+          "name": "思源湖",
+          "transform": [133,407],
+          "size": [82,84],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "rO8OaU2NMk69Yy7MEmiy1Q",
+          "name": "仰思坪",
+          "transform": [133,495],
+          "size": [69,57],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "cDw2E4Q0sEaOJwZGHwBxaA",
+          "name": "下院",
+          "transform": [219,407],
+          "size": [45,40],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "p1vj2PgF10KN9q05Te_IgA",
+          "name": "中院",
+          "transform": [219,451],
+          "size": [45,40],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "-AM0QKuKVU-Ii6P1HenfQQ",
+          "name": "上院",
+          "transform": [206,495],
+          "size": [58,57],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "FJZhUp5kTEuRvpsgMAgUOA",
+          "name": "第一餐饮大楼",
+          "transform": [280,346],
+          "size": [53,57],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "EbBvXUUFc0--FpW0vAAxgw",
+          "name": "子衿街",
+          "transform": [337,346],
+          "size": [50,32],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "IvrYDeL1pkGB8LFGf-VRhQ",
+          "name": "铁生馆",
+          "transform": [337,382],
+          "size": [50,21],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "mhAkeqZtHkaorrRLvHdkGg",
+          "name": "西一区学生公寓",
+          "transform": [268,407],
+          "size": [59,145],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "4vk-8JPrmE-hS-D6Qmi_0Q",
+          "name": "南区体育馆",
+          "transform": [331,407],
+          "size": [56,44],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "IZRNW9fODkarIc_kYBWAhA",
+          "name": "南区体育场",
+          "transform": [331,455],
+          "size": [56,97],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "HmYK7tBJ3USu7lG9Hn8-tg",
+          "name": "老行政楼",
+          "transform": [175,556],
+          "size": [36,35],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "ZTTm_sEz6U2OOYrDtvBBOQ",
+          "name": "校医院",
+          "transform": [310,587],
+          "size": [77,37],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "NZMAmgCIzkClxBsZdhEmDA",
+          "name": "学术活动中心",
+          "transform": [215,556],
+          "size": [65,35],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "M1FsYx7A-0q-pHTFsCPv1w",
+          "name": "留园",
+          "transform": [224,595],
+          "size": [30,29],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "KwcWH2xo_EGuZ36J3SFwyg",
+          "name": "南苏园",
+          "transform": [258,595],
+          "size": [48,29],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "VhLmf7rmnkyS5YLsqi4N4w",
+          "name": "西8-10学生公寓",
+          "transform": [284,556],
+          "size": [55,27],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "vM0LkNcE0E2hyrd-wKliZQ",
+          "name": "大智居",
+          "transform": [343,556],
+          "size": [44,27],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "GL8697hZwEySjbo5P__lww",
+          "name": "东四区学生公寓",
+          "transform": [462,0],
+          "size": [77,121],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "56-kAfLtPkayGgu2YzRzQA",
+          "name": "智慧能源创新学院",
+          "transform": [543,0],
+          "size": [168,121],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "GWkI5k_RRE2Mjnl9d-PFhA",
+          "name": "学生服务中心",
+          "transform": [413,57],
+          "size": [45,64],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "nN05X2RmKEeeiLD7loW0IQ",
+          "name": "网球场",
+          "transform": [399,125],
+          "size": [161,37],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "-h27TDUiZkmLbsBkr9poDQ",
+          "name": "第三餐饮大楼",
+          "transform": [399,166],
+          "size": [72,41],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "FDRwDpIEN0WG0zLqvflaZg",
+          "name": "捭阖塘",
+          "transform": [399,211],
+          "size": [72,30],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "iAPtqlVFlECDP-R5F4mXrA",
+          "name": "东三区学生公寓",
+          "transform": [475,166],
+          "size": [85,75],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "SaCj8_d-XEGymFm1VXiBvQ",
+          "name": "学生中心",
+          "transform": [399,245],
+          "size": [63,97],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "1yVL1uUg10yovECGmLCuHQ",
+          "name": "涵泽湖",
+          "transform": [466,245],
+          "size": [94.00005,97.00003],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[0.5106383,0],[0.510638,0.4536081],[0.99999946,0.4536081],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "WIut6oFWm0uBPbUdU9-UWA",
+          "name": "逸夫科技楼",
+          "transform": [518,245],
+          "size": [42,40],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "_FM5DmszTESPBhHOQHkzdw",
+          "name": "图信大楼",
+          "transform": [564,245],
+          "size": [147,97],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "NB-eOvEZQUucr-8H4IlxRA",
+          "name": "光彪楼",
+          "transform": [399,346],
+          "size": [63,83],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "9SU0O61luk61lKYw1PnoJA",
+          "name": "东二区学生公寓",
+          "transform": [466,346],
+          "size": [94,74],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Qk1ElCM0lEmPlO3Sz6kwoA",
+          "name": "第二餐饮大楼",
+          "transform": [478,424],
+          "size": [82,32],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "7NLvw5TmOEyy5S917GdDrA",
+          "name": "篮排球场",
+          "transform": [399,433],
+          "size": [75,69],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "xrbb_DYpZEWTqW1U1Ox_qQ",
+          "name": "棒球场",
+          "transform": [399,506],
+          "size": [75,59],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "e8GlEfs6AUC4duPqxIODMQ",
+          "name": "蓁蓁楼",
+          "transform": [478,460],
+          "size": [50,20],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "vpiMVHXDnUGReR011EnUQQ",
+          "name": "东一区学生公寓",
+          "transform": [478,484],
+          "size": [82,81],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "WjBEcSsgS0-wxw8_hprjEA",
+          "name": "东上院",
+          "transform": [564,497],
+          "size": [57,68],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "jCpYYpWErUO78FTbjF4qlQ",
+          "name": "东中院",
+          "transform": [564,408],
+          "size": [57,85],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Pbe2-RI-80myH8j2dgeRGg",
+          "name": "东下院",
+          "transform": [564,346],
+          "size": [57,58],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "gkxn8PIY50Srp9vLGJIIGQ",
+          "name": "陈瑞球楼",
+          "transform": [625,346],
+          "size": [86,58],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Nc5v8VQdY0CUDyumdSOUAA",
+          "name": "媒体与传播学院",
+          "transform": [625,408],
+          "size": [86,20],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "WuDw9UWvyU2zdaw5uMBLMA",
+          "name": "马克思主义学院",
+          "transform": [625,432],
+          "size": [86,20],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "JMXJyMObAUC5R-qo9A8vsQ",
+          "name": "设计学院",
+          "transform": [625,456],
+          "size": [86,37],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "2Mkza981e0iWLA98fL58SQ",
+          "name": "智能电网中心楼",
+          "transform": [625,497],
+          "size": [86,20],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "KSRzP2MybUGZARuYxZwa1w",
+          "name": "人文学院",
+          "transform": [625,521],
+          "size": [86,20],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "0skk-kazPkKOK32dyNMtUw",
+          "name": "外国语学院",
+          "transform": [625,545],
+          "size": [86,20],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "3uBxG36K9kyTzjd8y0J5Qw",
+          "name": "园林植物标本园",
+          "transform": [564,125],
+          "size": [147,116],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Hp34nBLQsUmBBD643WnZlw",
+          "name": "软件学院",
+          "transform": [723,516],
+          "size": [94,52],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "dnbYvfToNUOiVH-JgZlXXQ",
+          "name": "微电子学院",
+          "transform": [821,516],
+          "size": [91,52],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "EZKCGNd2uE2KYvQzb9ob2w",
+          "name": "智能大楼",
+          "transform": [723,572],
+          "size": [189,41],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Z0KbVYuiyk2ssb9OvHWW9g",
+          "name": "航空航天学院",
+          "transform": [916,516],
+          "size": [134,52],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "cRkctlarckevAahX0dYwqw",
+          "name": "海洋科学大楼",
+          "transform": [916,572],
+          "size": [134,41],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "HA5Ku2oHHEWNbUEWsl1h2Q",
+          "name": "第五餐饮大楼",
+          "transform": [723,474],
+          "size": [49,38],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "ty0PRk8h9U2fj4C1P7D0og",
+          "name": "电子信息与电气工程学院",
+          "transform": [776,346],
+          "size": [74,166],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "wlNfLUkpg06zu7JXa5cLlg",
+          "name": "大草坪",
+          "transform": [854,417],
+          "size": [129,95],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "_jJ0d0mzCkCLvkS9hHZrpg",
+          "name": "致远湖",
+          "transform": [854,346],
+          "size": [129,67],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "okORttYbGEub_vR0JWaBTw",
+          "name": "机械与动力工程学院",
+          "transform": [987,346],
+          "size": [79,166],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "JlrovoJKW0m8Mtx8uesJ4g",
+          "name": "密西根学院",
+          "transform": [1070,434],
+          "size": [63,53],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Hom2xDj3l0q52mD1-ZW4oQ",
+          "name": "文博楼",
+          "transform": [1070,377],
+          "size": [63,53],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "0mXUVMTo8EeFspPcduVx6g",
+          "name": "行政楼",
+          "transform": [723,245],
+          "size": [127,97],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "PvjNdPtiu0eBhZsYWitJbg",
+          "name": "系统生物医学研究院",
+          "transform": [723,125],
+          "size": [103,54],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "jg49R-DRQEyz3SBx3SkG2w",
+          "name": "转化医学研究院",
+          "transform": [796,183],
+          "size": [127,58],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "bEoFH8Yfn0eNR9m3qaPLTQ",
+          "name": "第七餐饮大楼",
+          "transform": [830,143],
+          "size": [21,36],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "YjjBLdTdAEWD2fkOpMtS4Q",
+          "name": "文选医学大楼",
+          "transform": [855,125],
+          "size": [68,54],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "qE2OjiErek-Q3gyOUghXFQ",
+          "name": "综合实验楼",
+          "transform": [987,265],
+          "size": [79,77],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "ikn7wtLPI0OWkrW_Dxyohg",
+          "name": "蔷薇园",
+          "transform": [854,265],
+          "size": [129,26],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "FcbBZLsRY06_JMBmyPeqKQ",
+          "name": "生态林",
+          "transform": [854,295],
+          "size": [129,47],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "Y_sC65Ki306DA4dGr4vYQQ",
+          "name": "第六餐饮大楼",
+          "transform": [973,237],
+          "size": [42,24],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "8qTGtLH1ZU-ZyajZYW4A-g",
+          "name": "药学院",
+          "transform": [927,137],
+          "size": [36,86],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "AIMENLp9U0CWRdH57QRmlw",
+          "name": "生命科学技术学院",
+          "transform": [967,137],
+          "size": [48,96],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "9D-PdoS_C0uqcp2Z_BuXkQ",
+          "name": "船舶海洋与建筑工程学院",
+          "transform": [1019,125],
+          "size": [114,136],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        },
+        {
+          "_t": "PATH",
+          "id": "wBXTkokXUE2oqC2lacUHnw",
+          "name": "农业与生物学院",
+          "transform": [935,0],
+          "size": [198,121],
+          "fills": [
+            {
+              "color": "33FFC5C5"
+            }
+          ],
+          "edited": true,
+          "points": [[0,0],[1,0],[1,1],[0,1]
+          ]
+        }
+      ]
+    },
+    {
+      "_t": "GROUP",
+      "id": "Y6ZdfhBf-kSIixxxN2no3g",
+      "name": "label",
+      "size": [1133,624],
+      "skipConstraints": true,
+      "layers": [
+        {
+          "_t": "TEXT",
+          "id": "a84bLbN7Nk20VIkQkqF-Zg",
+          "name": "霍英东体育馆",
+          "transform": [0,25],
+          "size": [127,96],
+          "text": "霍英东体育馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "wYuN366pjUG55CvfSixrYQ",
+          "name": "北鲲园",
+          "size": [127,21],
+          "text": "北鲲园",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "u1DjYCNG_EiJj2IKV9uF4w",
+          "name": "西五区学生公寓",
+          "transform": [131,25],
+          "size": [106,96],
+          "text": "西五区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "W1TrMYx4s0qvB13ftbWVmA",
+          "name": "西四区学生公寓",
+          "transform": [241,25],
+          "size": [95,96],
+          "text": "西四区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Vvly47cLY0qBbRpYpaliEw",
+          "name": "理科实验楼群",
+          "transform": [0,125],
+          "size": [88,82],
+          "text": "理科实验楼群",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "8neR0kqndEy097pr4xc-oQ",
+          "name": "李政道图书馆",
+          "transform": [92,125],
+          "size": [35,82],
+          "text": "李政道图书馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "mY17p_hO10-Gcq5362fwiA",
+          "name": "第四餐饮大楼",
+          "transform": [131,125],
+          "size": [40,82],
+          "text": "四餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "COVrZi4dZUC5YJkKXnLgxQ",
+          "name": "西三区学生公寓",
+          "transform": [175,125],
+          "size": [161,82],
+          "text": "西三区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "mOyYvy6KU02CSnCkWvEDpQ",
+          "name": "气膜体育中心",
+          "transform": [340,25],
+          "size": [36,96],
+          "text": "气膜体育中心",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "obNx6tbW6EymVRBH2B28KQ",
+          "name": "篮球场",
+          "transform": [340,125],
+          "size": [36,82],
+          "text": "篮球场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "A4e9PlbLokivQlLsyDN9Mw",
+          "name": "学生创新中心",
+          "transform": [120,211],
+          "size": [88,52],
+          "text": "学生\n创新中心",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "GbsYIdMiBkiiIVWMSasKpg",
+          "name": "材料科学与工程学院",
+          "transform": [0,248],
+          "size": [116,94],
+          "text": "材料学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "hdH9kEreFUqe72R2FEGOrg",
+          "name": "巴黎卓越工程师学院",
+          "transform": [212,211],
+          "size": [38,52],
+          "text": "巴院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "P7dTTMVkLkOu5GDvISna0A",
+          "name": "环境科学与工程学院",
+          "transform": [254,211],
+          "size": [38,52],
+          "text": "环境学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "kyuSkQSFcUeNEL_E-6VARg",
+          "name": "西二区学生公寓",
+          "transform": [296,245],
+          "size": [79,65],
+          "text": "西二区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "dS8m4eswt02D7uXpQ8-_aQ",
+          "name": "玉兰苑",
+          "transform": [296,314],
+          "size": [47,28],
+          "text": "玉兰苑",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "9SHgnsb2_Ui4lauy9j9vig",
+          "name": "化学化工学院",
+          "transform": [120,267],
+          "size": [172,75],
+          "text": "化学化工学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "oCclI97ALk2HwVoJ5niUAw",
+          "name": "致远游泳馆",
+          "transform": [0,371],
+          "size": [51,43],
+          "text": "致远\n游泳馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Wq8io5m3Mkm64MIEWNYhZA",
+          "name": "南洋足球公园",
+          "transform": [55,371],
+          "size": [51,43],
+          "text": "南洋足球公园",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "4S5CSr0380mLjNVmAhQ8IA",
+          "name": "胡法光体育场",
+          "transform": [0,418],
+          "size": [129,134],
+          "text": "胡法光体育场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "mtYXck82CU-awcCQz-YLcA",
+          "name": "胡晓明网球场",
+          "transform": [0,556],
+          "size": [91,35],
+          "text": "胡晓明网球场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Cu20i8WU10CCduEepnx_HA",
+          "name": "菁菁堂",
+          "transform": [95,556],
+          "size": [50,35],
+          "text": "菁菁堂",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "HCZRfAwTDESntxLL2pZZnA",
+          "name": "包玉刚图书馆",
+          "transform": [176,346],
+          "size": [52,57],
+          "text": "包玉刚图书馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "S7HuW7_f-E64hLPXJWosYA",
+          "name": "程及美术馆",
+          "transform": [127,369],
+          "size": [45,34],
+          "text": "程及\n美术馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Zx51Xh3OCkq7GihHYqmzgg",
+          "name": "溥渊未来技术学院",
+          "transform": [232,346],
+          "size": [44,57],
+          "text": "溥渊未来技术学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Q1QkanAcw0CakzhiXgrp0A",
+          "name": "思源湖",
+          "transform": [133,407],
+          "size": [82,84],
+          "text": "思源湖",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "tWL7OawqaEy3SbxJy8GHeA",
+          "name": "仰思坪",
+          "transform": [133,495],
+          "size": [69,57],
+          "text": "仰思坪",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Ucg6IwZqo0uf95ftEn1daw",
+          "name": "下院",
+          "transform": [219,407],
+          "size": [45,40],
+          "text": "下院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "aPUmEsV5TU2cU7t-iNYXdg",
+          "name": "中院",
+          "transform": [219,451],
+          "size": [45,40],
+          "text": "中院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "6nAjK68c0EC6871AYtCGsQ",
+          "name": "上院",
+          "transform": [206,495],
+          "size": [58,57],
+          "text": "上院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "VHYtCTcGy0-_oHUlickDjw",
+          "name": "第一餐饮大楼",
+          "transform": [280,346],
+          "size": [53,57],
+          "text": "一餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "ksW70DKIL0WWhZRx_av5VA",
+          "name": "子衿街",
+          "transform": [337,346],
+          "size": [50,32],
+          "text": "子衿街",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "LLfDFyle1kG0O4GoASmj5w",
+          "name": "铁生馆",
+          "transform": [337,382],
+          "size": [50,21],
+          "text": "铁生馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "CsyyvjHuD0-19dGCGZDFHQ",
+          "name": "西一区学生公寓",
+          "transform": [268,407],
+          "size": [59,145],
+          "text": "西一区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "f6ygmcnIIU6-AfHAemsNdw",
+          "name": "南区体育馆",
+          "transform": [331,407],
+          "size": [56,44],
+          "text": "南区\n体育馆",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "C47iPlQkZ0m5oDLsAV4erg",
+          "name": "南区体育场",
+          "transform": [331,455],
+          "size": [56,97],
+          "text": "南区\n体育场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "PRRLdL6le0uq5rJXLjPFsw",
+          "name": "老行政楼",
+          "transform": [175,556],
+          "size": [36,35],
+          "text": "老行政楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "_UapHRA--0CbJKxllxnn9g",
+          "name": "校医院",
+          "transform": [310,587],
+          "size": [77,37],
+          "text": "校医院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "NelOKQwMXUCegNnqPWjCJQ",
+          "name": "学术活动中心",
+          "transform": [215,556],
+          "size": [65,35],
+          "text": "学术活动中心",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "834382yyWkOzOHEpUlEpiQ",
+          "name": "留园",
+          "transform": [224,595],
+          "size": [30,29],
+          "text": "留园",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "zagiZnX5ZkawLjSXrjiMag",
+          "name": "南苏园",
+          "transform": [258,595],
+          "size": [48,29],
+          "text": "南苏园",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "0i01uVQmFEmRgB1PRy9pdQ",
+          "name": "西8-10学生公寓",
+          "transform": [284,556],
+          "size": [55,27],
+          "text": "西8-10",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "5o2JVJCs6E-eb4w7nB3Rwg",
+          "name": "大智居",
+          "transform": [343,556],
+          "size": [44,27],
+          "text": "大智居",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "50Ghwe9zKUiCZ2nioCXFug",
+          "name": "东四区学生公寓",
+          "transform": [462,0],
+          "size": [77,121],
+          "text": "东四区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "fpIzKTg4Rker8sW6SCpYRQ",
+          "name": "智慧能源创新学院",
+          "transform": [543,0],
+          "size": [168,121],
+          "text": "智慧能源创新学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "quOA6UIQlEW_cmJu11Q4lA",
+          "name": "学生服务中心",
+          "transform": [413,57],
+          "size": [45,64],
+          "text": "学生\n服务\n中心",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "vnXVv8injk23G6N6ofOEtQ",
+          "name": "网球场",
+          "transform": [399,125],
+          "size": [161,37],
+          "text": "网球场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "DI4V6wGZlE649cfoQOGecQ",
+          "name": "第三餐饮大楼",
+          "transform": [399,166],
+          "size": [72,41],
+          "text": "三餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "P0wQPlAmm0mR9Hmb6-rGKw",
+          "name": "捭阖塘",
+          "transform": [399,211],
+          "size": [72,30],
+          "text": "捭阖塘",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "T_PTLCThDkedTr1Eaouh5g",
+          "name": "东三区学生公寓",
+          "transform": [475,166],
+          "size": [85,75],
+          "text": "东三区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "_tZNYmybUk-TiJtbBqAv3g",
+          "name": "学生中心",
+          "transform": [399,245],
+          "size": [63,97],
+          "text": "学生中心",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "QXZHMZwaAku83petmDeSiQ",
+          "name": "涵泽湖",
+          "transform": [466,283],
+          "size": [94,59],
+          "text": "涵泽湖",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "ItbwoX3--0irO3FsrCLXyA",
+          "name": "逸夫科技楼",
+          "transform": [518,245],
+          "size": [42,40],
+          "text": "逸夫楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "wMs0nYT9BE-9hxeR9mQu6Q",
+          "name": "图信大楼",
+          "transform": [564,245],
+          "size": [147,97],
+          "text": "图信大楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "q_JYTokQhUeFA76L3KGR5w",
+          "name": "光彪楼",
+          "transform": [399,346],
+          "size": [63,83],
+          "text": "光彪楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "ZVzsuMUxpEyZxEHV1cqyNw",
+          "name": "东二区学生公寓",
+          "transform": [466,346],
+          "size": [94,74],
+          "text": "东二区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Cq3l_d6x6EGp-hw_u5Ffrg",
+          "name": "第二餐饮大楼",
+          "transform": [478,424],
+          "size": [82,32],
+          "text": "二餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "IvxVIVNPvUukcFiuEqKUSQ",
+          "name": "篮排球场",
+          "transform": [399,433],
+          "size": [75,69],
+          "text": "篮排球场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "uE5WxEgCkUKDrAQds8j2_Q",
+          "name": "棒球场",
+          "transform": [399,506],
+          "size": [75,59],
+          "text": "棒球场",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "uonyCqn1tUay6_di3VntWQ",
+          "name": "蓁蓁楼",
+          "transform": [478,460],
+          "size": [50,20],
+          "text": "蓁蓁楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "fm-OqguG1kSpQwAzp30zfg",
+          "name": "东一区学生公寓",
+          "transform": [478,484],
+          "size": [82,81],
+          "text": "东一区",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "f5lPrHBi-Eaj8E17SAhhGw",
+          "name": "东上院",
+          "transform": [564,497],
+          "size": [57,68],
+          "text": "东上院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "jgI6I9hCdUWEMe4KRDss7A",
+          "name": "东中院",
+          "transform": [564,408],
+          "size": [57,85],
+          "text": "东中院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "VN6gPDwFckWZoQQrFjTG1A",
+          "name": "东下院",
+          "transform": [564,346],
+          "size": [57,58],
+          "text": "东下院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "YIM_X8tz9U64WibgwftM_g",
+          "name": "陈瑞球楼",
+          "transform": [625,346],
+          "size": [86,58],
+          "text": "陈瑞球楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "IRDeBr3sH0-TOVp0gMRaXw",
+          "name": "媒体与传播学院",
+          "transform": [625,408],
+          "size": [86,20],
+          "text": "媒传学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "xfPmzS25B0yFuJ_dqYHeoQ",
+          "name": "马克思主义学院",
+          "transform": [625,432],
+          "size": [86,20],
+          "text": "马克思学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "8l9XsRfJlEKIwwr34PtYoQ",
+          "name": "设计学院",
+          "transform": [625,456],
+          "size": [86,37],
+          "text": "设计学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "F8-zS141JUiuPbsX5v9ZfQ",
+          "name": "智能电网中心楼",
+          "transform": [625,497],
+          "size": [86,20],
+          "text": "智能电网楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "N7hm7WW85EKEIdn21Y2rUg",
+          "name": "人文学院",
+          "transform": [625,521],
+          "size": [86,20],
+          "text": "人文学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Dt1Rl7qKgkyT-YfqCApPxQ",
+          "name": "外国语学院",
+          "transform": [625,545],
+          "size": [86,20],
+          "text": "外国语学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Sbw3ahQFQUCbZAbDZkygHA",
+          "name": "园林植物标本园",
+          "transform": [564,125],
+          "size": [147,116],
+          "text": "植物园",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "MBGxMxXLhUWMa-bbnVNMkQ",
+          "name": "软件学院",
+          "transform": [723,516],
+          "size": [94,52],
+          "text": "软件学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "9Gr9YQCMU0KzIAg5NRUPEQ",
+          "name": "微电子学院",
+          "transform": [821,516],
+          "size": [91,52],
+          "text": "微电子学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "BiYJgbIOYECRG15NXFqEAA",
+          "name": "智能大楼",
+          "transform": [723,572],
+          "size": [189,41],
+          "text": "智能大楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "6zS84kDSBECpiAcGOHv4-Q",
+          "name": "航空航天学院",
+          "transform": [916,516],
+          "size": [134,52],
+          "text": "航空航天学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 5,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "o8SZmr2Kxkm6B0Rp8oQemA",
+          "name": "海洋科学大楼",
+          "transform": [916,572],
+          "size": [134,41],
+          "text": "海洋科学大楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 5,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "SugoXggKo0SmvBq8Q7hwMw",
+          "name": "第五餐饮大楼",
+          "transform": [723,474],
+          "size": [49,38],
+          "text": "五餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "hN0xtlXTAkSmKhraI4pPbw",
+          "name": "电子信息与电气工程学院",
+          "transform": [776,346],
+          "size": [74,166],
+          "text": "电院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "PfC07XFVi02NP8Af7xNh2w",
+          "name": "大草坪",
+          "transform": [854,417],
+          "size": [129,95],
+          "text": "大草坪",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "GY0B-2zHL0StKR2to_PVoA",
+          "name": "致远湖",
+          "transform": [854,346],
+          "size": [129,67],
+          "text": "致远湖",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "DOqJshWK6E6ub2AsCAJhYg",
+          "name": "机械与动力工程学院",
+          "transform": [987,346],
+          "size": [79,166],
+          "text": "机动学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 5,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "xTwSQVd_h0Sbh5L07YIWzw",
+          "name": "密西根学院",
+          "transform": [1070,434],
+          "size": [63,53],
+          "text": "浦江国际学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "05jFw9EsN0qa4H-Deq7JzQ",
+          "name": "文博楼",
+          "transform": [1070,377],
+          "size": [63,53],
+          "text": "文博楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 5,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "kJ0XuYF7qUOj8mgYjCfZqw",
+          "name": "行政楼",
+          "transform": [723,245],
+          "size": [127,97],
+          "text": "行政楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "nxbR4-XCJ0iTMvQ1-ebwKg",
+          "name": "系统生物医学研究院",
+          "transform": [723,125],
+          "size": [103,54],
+          "text": "系统生物医学\n研究院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "5Tk9cMNll06Vdf4YvRrCYQ",
+          "name": "转化医学研究院",
+          "transform": [796,183],
+          "size": [127,58],
+          "text": "转化医学研究院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "h6ZLh09vOEWwPOTVrAgwCg",
+          "name": "第七餐饮大楼",
+          "transform": [830,143],
+          "size": [21,36],
+          "text": "七餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "Kd-VtHiKnE-e26yO56MqMg",
+          "name": "文选医学大楼",
+          "transform": [855,125],
+          "size": [68,54],
+          "text": "文选医学大楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "COW_xibdYUO5y3wY8oGdgA",
+          "name": "综合实验楼",
+          "transform": [987,265],
+          "size": [79,77],
+          "text": "综合实验楼",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "CHBGa6FzMkGT42jhIu3uFw",
+          "name": "蔷薇园",
+          "transform": [854,265],
+          "size": [129,26],
+          "text": "蔷薇园",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "-XyJaAhE_0e4iBFcmsO-RQ",
+          "name": "生态林",
+          "transform": [854,295],
+          "size": [129,47],
+          "text": "生态林",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "OyzSx_vD7kGxb7D_dtWIwg",
+          "name": "第六餐饮大楼",
+          "transform": [973,237],
+          "size": [42,24],
+          "text": "六餐",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "og8j-8AVNUeYO7f8BJaI7A",
+          "name": "药学院",
+          "transform": [927,137],
+          "size": [36,86],
+          "text": "药\n学\n院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "9wGcdtoPVkeoHydoos6_Rw",
+          "name": "生命科学技术学院",
+          "transform": [967,137],
+          "size": [48,96],
+          "text": "生命\n科学\n技术\n学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "PNPGbsMK806clbhK4ektiw",
+          "name": "船舶海洋与建筑工程学院",
+          "transform": [1019,125],
+          "size": [114,136],
+          "text": "船建学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 14,
+            "valign": 1
+          },
+          "behavior": 2
+        },
+        {
+          "_t": "TEXT",
+          "id": "8ChsDHIGHEi3Un1S_-K2tQ",
+          "name": "农业与生物学院",
+          "transform": [935,0],
+          "size": [198,121],
+          "text": "农业与生物学院",
+          "textStyle": {
+            "font": "MicrosoftYaHei",
+            "size": 14,
+            "align": 2,
+            "valign": 1,
+            "lineHeight": 5,
+            "valign": 1
+          },
+          "behavior": 2
+        }
+      ]
+    },
+    {
+      "_t": "GROUP",
+      "id": "Bws2NAzSNkS5XdyCAIqKkA",
+      "name": "sep",
+      "size": [1133,624],
+      "skipConstraints": true,
+      "layers": [
+        {
+          "_t": "RECT",
+          "id": "vNWF_osnFUOgLOSsed-8mQ",
+          "name": "矩形",
+          "transform": [387,0],
+          "size": [12,624],
+          "fills": [
+            {
+              "color": "D3"
+            }
+          ]
+        },
+        {
+          "_t": "RECT",
+          "id": "y6yWQwMvoE6E16tBuh95fQ",
+          "name": "矩形",
+          "transform": [711,0],
+          "size": [12,624],
+          "fills": [
+            {
+              "color": "D3"
+            }
+          ]
+        },
+        {
+          "_t": "RECT",
+          "id": "4hbdfGdxpkaxYxyRb-Vftw",
+          "name": "矩形",
+          "transform": [0,342],
+          "size": [1133,4],
+          "fills": [
+            {
+              "color": "D3"
+            }
+          ]
+        },
+        {
+          "_t": "RECT",
+          "id": "NIga8uLLS0Wa42kyskQiBg",
+          "name": "矩形",
+          "transform": [0,121],
+          "size": [1133,4],
+          "fills": [
+            {
+              "color": "D3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

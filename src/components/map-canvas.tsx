@@ -1,18 +1,9 @@
 import { useTheme } from "next-themes";
 import React, { useRef, useEffect, useCallback, useState } from "react";
-import { Box } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
 import { buildPathFromRelativePoints, buildPathFromRelativePointsAndTranslate } from "@/utils/shape";
-
-const DEFAULT_COLOR = "#cccccc";
-
-function getLabelPos(path: string): [number, number] {
-  const match = path.match(/M\s*([-\d.]+),([-\d.]+)/i);
-  if (match) {
-    return [parseFloat(match[1]), parseFloat(match[2])];
-  }
-  return [0, 0];
-}
+import { colorMap } from "@/constants/colors";
 
 interface MapCanvasProps {
   color: string;
@@ -31,7 +22,6 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
 }) => {
   const { theme } = useTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -52,7 +42,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       // draw building
       const path2d = new Path2D(buildPathFromRelativePoints(area.size, area.points!));
       ctx.translate(area.transform ? area.transform[0] : 0, area.transform ? area.transform[1] : 0);
-      ctx.fillStyle = selectedColors[area.name] || DEFAULT_COLOR;
+      ctx.fillStyle = colorMap[selectedColors[area.name]] || (theme === "dark" ? "#333" : "#fff");
       ctx.fill(path2d);
       ctx.strokeStyle = theme === "dark" ? "#fff" : "#333";
       ctx.lineWidth = 2;
@@ -85,7 +75,8 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const totalHeight = labelLines.length * 14; // assuming 14px line height
       const totalWidth = maxWidth;
       ctx.font = "14px Sans-serif";
-      ctx.fillStyle = theme === "dark" ? "#fff" : "#333";
+      ctx.fillStyle =
+        theme === "dark" || !!selectedColors[label.name] ? "#fff" : "#333";
       for (let i = 0; i < labelLines.length; i++) {
         const text = labelLines[i];
         const lineWidth = ctx.measureText(text).width;
@@ -95,7 +86,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         ctx.fillText(text, x, y);
       }
     }
-  }, [selectedColors, color, theme]);
+  }, [selectedColors, color, theme, scale]);
 
   const handleCanvasClick = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -131,41 +122,24 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   );
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (canvas && container) {
-      // init canvas size
-      const dpr = window.devicePixelRatio || 1;
-      const rect = container.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      canvas.style.width = rect.width + "px";
-      canvas.style.height = rect.height + "px";
-      draw();
-    }
+    draw();
   }, [draw]);
 
   return (
-    <Box
-      ref={containerRef}
-      style={{
-        width: "100%",
-        height: "calc(100vh - 200px)",
-        border: "unset",
-        position: "relative",
-      }}
-    >
+    <Center flex="1">
       <canvas
         ref={canvasRef}
+        width={MAP.size[0] * scale * (window.devicePixelRatio || 1)}
+        height={MAP.size[1] * scale * (window.devicePixelRatio || 1)}
         style={{
           display: "block",
-          width: "100%",
-          height: "100%",
-          backgroundColor: theme === "dark" ? "#1a202c" : "#f0f0f0",
+          width: MAP.size[0] * scale + "px",
+          height: MAP.size[1] * scale + "px",
+          backgroundColor: "inherit",
         }}
         onClick={handleCanvasClick}
       />
-    </Box>
+    </Center>
   );
 };
 

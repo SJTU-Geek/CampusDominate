@@ -1,5 +1,6 @@
-import { HStack, RadioCard } from "@chakra-ui/react";
-import { rates } from "../constants/rates";
+import { Box, VStack } from "@chakra-ui/react";
+import { rates } from "@/constants/rates";
+import { useTheme } from "next-themes";
 
 interface RateSelectorProps {
   color: string;
@@ -7,31 +8,33 @@ interface RateSelectorProps {
 }
 
 const RateSelector: React.FC<RateSelectorProps> = ({ color, onChange }) => {
+  const { theme } = useTheme();
   return (
-    <RadioCard.Root
-      defaultValue={color}
-      onValueChange={(e) => e.value && onChange(e.value)}
-    >
-      <HStack align="stretch">
+    <Box position="absolute" right="2" bottom="2">
+      <VStack overflowX="auto" gap={1}>
         {rates.map((item) => (
-          <RadioCard.Item
+          <Box
+            as="button"
             key={item.value}
-            value={item.value}
-            colorPalette={item.value}
+            onClick={() => onChange(item.value)}
+            p={1}
+            border="1px solid"
+            borderColor={
+              color === item.value ? `${item.value}.solid` : theme === "dark" ? "#fff" : "#333"
+            }
+            backgroundColor={
+              color === item.value
+                ? `${item.value}.solid`
+                : `${item.value}.subtle`
+            }
+            color={color === item.value ? "white" : `${item.value}.solid`}
+            fontSize="sm"
           >
-            <RadioCard.ItemHiddenInput />
-            <RadioCard.ItemControl>
-              <RadioCard.ItemIndicator />
-              <RadioCard.ItemContent>
-                <RadioCard.ItemText color={item.value + ".solid"}>
-                  {item.title}
-                </RadioCard.ItemText>
-              </RadioCard.ItemContent>
-            </RadioCard.ItemControl>
-          </RadioCard.Item>
+            {item.title}
+          </Box>
         ))}
-      </HStack>
-    </RadioCard.Root>
+      </VStack>
+    </Box>
   );
 };
 

@@ -9,6 +9,9 @@ export function ColorModeToggle() {
   };
   return (
     <IconButton
+      position="absolute"
+      left="2"
+      bottom="2"
       variant="ghost"
       aria-label="toggle color mode"
       onClick={toggleColorMode}

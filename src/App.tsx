@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
-import { Flex } from "@chakra-ui/react";
+import { Flex, VStack } from "@chakra-ui/react";
 import TitleBar from "@/components/titlebar";
 import { rates } from "@/constants/rates";
 import Footer from "@/components/footer";
@@ -8,6 +8,7 @@ import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
 import { ColorModeToggle } from "@/components/color-mode-toggle";
 import { useTheme } from "next-themes";
+import { ScreenshotTrigger } from "./components/screenshot-trigger";
 
 const App: React.FC = () => {
   const theme = useTheme();
@@ -49,7 +50,10 @@ const App: React.FC = () => {
         setSelectedColors={setSelectedColors}
       />
       <RateSelector color={color} onChange={setColor} />
-      <ColorModeToggle />
+      <VStack position="absolute" left="2" bottom="2">
+        <ScreenshotTrigger />
+        <ColorModeToggle />
+      </VStack>
       <Footer />
     </Flex>
   );

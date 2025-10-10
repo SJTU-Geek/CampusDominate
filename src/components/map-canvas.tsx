@@ -1,8 +1,11 @@
 import { useTheme } from "next-themes";
-import React, { useRef, useEffect, useCallback, useState } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { Center } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
-import { buildPathFromRelativePoints, buildPathFromRelativePointsAndTranslate } from "@/utils/shape";
+import {
+  buildPathFromRelativePoints,
+  buildPathFromRelativePointsAndTranslate,
+} from "@/utils/shape";
 import { colorMap } from "@/constants/colors";
 
 interface MapCanvasProps {
@@ -40,24 +43,35 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
     for (const area of mapAreas) {
       // draw building
-      const path2d = new Path2D(buildPathFromRelativePoints(area.size, area.points!));
-      ctx.translate(area.transform ? area.transform[0] : 0, area.transform ? area.transform[1] : 0);
-      ctx.fillStyle = colorMap[selectedColors[area.name]] || (theme === "dark" ? "#333" : "#fff");
+      const path2d = new Path2D(
+        buildPathFromRelativePoints(area.size, area.points!)
+      );
+      ctx.translate(
+        area.transform ? area.transform[0] : 0,
+        area.transform ? area.transform[1] : 0
+      );
+      ctx.fillStyle =
+        colorMap[selectedColors[area.name]] ||
+        (theme === "dark" ? "#333" : "#fff");
       ctx.fill(path2d);
       ctx.strokeStyle = theme === "dark" ? "#fff" : "#333";
       ctx.lineWidth = 2;
       ctx.stroke(path2d);
-      ctx.translate(-(area.transform ? area.transform[0] : 0), -(area.transform ? area.transform[1] : 0));
+      ctx.translate(
+        -(area.transform ? area.transform[0] : 0),
+        -(area.transform ? area.transform[1] : 0)
+      );
     }
-    const mapLabels = MAP.layers.find((layer) => layer.name === "label")?.layers!;
+    const mapLabels = MAP.layers.find(
+      (layer) => layer.name === "label"
+    )?.layers!;
     for (const label of mapLabels) {
       let labelLines = [];
-      let maxWidth = 0; 
+      let maxWidth = 0;
       if (label.text!.includes("\n")) {
         labelLines = label.text!.split("\n");
         maxWidth = ctx.measureText(label.text!).width;
-      }
-      else {
+      } else {
         let tmpText = label.text!;
         while (tmpText.length > 0) {
           for (let len = tmpText.length; len > 0; len--) {
@@ -100,9 +114,17 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const x = (e.clientX - rect.left) * dpr;
       const y = (e.clientY - rect.top) * dpr;
 
-      const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
+      const mapAreas = MAP.layers.find(
+        (layer) => layer.name === "area"
+      )?.layers!;
       for (const area of mapAreas) {
-        const path2d = new Path2D(buildPathFromRelativePointsAndTranslate(area.size, area.points!, area.transform ?? [0, 0]));
+        const path2d = new Path2D(
+          buildPathFromRelativePointsAndTranslate(
+            area.size,
+            area.points!,
+            area.transform ?? [0, 0]
+          )
+        );
         if (ctx.isPointInPath(path2d, x, y)) {
           setSelectedColors((prev) => {
             const cur = prev[area.name];
@@ -136,6 +158,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
           width: MAP.size[0] * scale + "px",
           height: MAP.size[1] * scale + "px",
           backgroundColor: "inherit",
+          border: "none",
         }}
         onClick={handleCanvasClick}
       />

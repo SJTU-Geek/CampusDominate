@@ -1,4 +1,4 @@
-import { Box, VStack } from "@chakra-ui/react";
+import { Box, Button, VStack } from "@chakra-ui/react";
 import { rates } from "@/constants/rates";
 import { useTheme } from "next-themes";
 
@@ -13,12 +13,11 @@ const RateSelector: React.FC<RateSelectorProps> = ({ color, onChange }) => {
     <Box position="absolute" right="2" bottom="2">
       <VStack overflowX="auto" gap={1}>
         {rates.map((item) => (
-          <Box
-            as="button"
+          <Button
             key={item.value}
             onClick={() => onChange(item.value)}
             p={1}
-            border="1px solid"
+            border="1.5px solid"
             borderColor={
               color === item.value ? `${item.value}.solid` : theme === "dark" ? "#fff" : "#333"
             }
@@ -29,9 +28,10 @@ const RateSelector: React.FC<RateSelectorProps> = ({ color, onChange }) => {
             }
             color={color === item.value ? "white" : `${item.value}.solid`}
             fontSize="sm"
+            borderRadius="none"
           >
             {item.title}
-          </Box>
+          </Button>
         ))}
       </VStack>
     </Box>

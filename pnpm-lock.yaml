@@ -14,6 +14,9 @@ importers:
       '@types/node':
         specifier: ^24.7.1
         version: 24.7.1
+      '@zumer/snapdom':
+        specifier: ^1.9.14
+        version: 1.9.14
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -746,6 +749,9 @@ packages:
 
   '@zag-js/utils@1.24.2':
     resolution: {integrity: sha512-3U8aYXjktpDmQV4M7nAOj7E4x1XSifG7PrbHqJbTYRm7/EPbwCQEEDPckkkWBmj4UrvltbkXPi6nzcP4Qpw5bA==}
+
+  '@zumer/snapdom@1.9.14':
+    resolution: {integrity: sha512-kQARFS/jf+fsIFv9qxfNp8YMeun5tTyhFDk3iv47Lywk5YRldhINWicEZI15fP3FDUCeo8ok+BP0CtnDRFMFRg==}
 
   babel-plugin-macros@3.1.0:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
@@ -2070,6 +2076,8 @@ snapshots:
       csstype: 3.1.3
 
   '@zag-js/utils@1.24.2': {}
+
+  '@zumer/snapdom@1.9.14': {}
 
   babel-plugin-macros@3.1.0:
     dependencies:

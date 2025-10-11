@@ -24,6 +24,7 @@ const App: React.FC = () => {
   const [scale, setScale] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState(theme.theme === "dark" ? "gray.900" : "pink.subtle");
   const rootBoxRef = useRef<HTMLDivElement>(null);
+  const canvasPadding = 2;
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,8 +32,8 @@ const App: React.FC = () => {
       const width = viewport ? viewport.width : window.innerWidth;
       const height = viewport ? viewport.height : window.innerHeight;
       console.log("Window size:", width, height);
-      let widthScale = (width - 50) / MAP.size[0];
-      let heightScale = (height - 120) / MAP.size[1];
+      let widthScale = (width - 50) / (MAP.size[0] + canvasPadding * 2);
+      let heightScale = (height - 120) / (MAP.size[1] + canvasPadding * 2);
       setScale(Math.min(widthScale, heightScale));
     };
     window.addEventListener("resize", handleResize);
@@ -77,6 +78,7 @@ const App: React.FC = () => {
       <MapCanvas
         level={level}
         scale={scale}
+        canvasPadding={canvasPadding}
         areaLevelMap={areaLevelMap}
         setAreaLevelMap={setAreaLevelMap}
       />

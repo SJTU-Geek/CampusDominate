@@ -4,7 +4,8 @@ import { LuCamera } from "react-icons/lu";
 import { snapdom } from "@zumer/snapdom";
 
 export const ScreenshotTrigger = () => {
-  const handleScreenshot = useCallback(async () => {
+  const handleScreenshot = useCallback(async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     try {
       const result = await snapdom(document.body);
 

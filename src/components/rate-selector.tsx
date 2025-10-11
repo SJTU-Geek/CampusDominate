@@ -1,4 +1,4 @@
-import { Box, Button, VStack } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, VStack } from "@chakra-ui/react";
 import { LEVELS } from "@/constants/rates";
 import { useTheme } from "next-themes";
 
@@ -11,19 +11,22 @@ const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange }) => 
   const { theme } = useTheme();
   return (
     <Box position="absolute" right="2" bottom="2">
-      <VStack overflowX="auto" gap={1}>
+      <ButtonGroup size="lg" flexDirection="column" variant="outline" attached>
         {LEVELS.map((item, index) => (
           <Button
             key={item.color}
-            onClick={() => onLevelChange(index)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onLevelChange(index);
+            }}
             p={1}
-            border="1.5px solid"
+            border="4px solid"
             borderColor={
-              level === index ? `${item.color}.solid` : theme === "dark" ? "#fff" : "#333"
+              level === index ? `${item.color}.600` : "transparent"
             }
             backgroundColor={
               level === index
-                ? `${item.color}.solid`
+                ? `${item.color}.500`
                 : `${item.color}.subtle`
             }
             color={level === index ? "white" : `${item.color}.solid`}
@@ -33,7 +36,7 @@ const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange }) => 
             {item.title}
           </Button>
         ))}
-      </VStack>
+      </ButtonGroup>
     </Box>
   );
 };

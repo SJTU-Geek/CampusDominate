@@ -11,6 +11,7 @@ import { LEVELS } from "@/constants/rates";
 interface MapCanvasProps {
   level: number;
   scale: number;
+  canvasPadding: number;
   areaLevelMap: { [name: string]: number };
   setAreaLevelMap: React.Dispatch<
     React.SetStateAction<{ [name: string]: number }>
@@ -20,6 +21,7 @@ interface MapCanvasProps {
 const MapCanvas: React.FC<MapCanvasProps> = ({
   level,
   scale,
+  canvasPadding,
   areaLevelMap,
   setAreaLevelMap,
 }) => {
@@ -43,9 +45,11 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
 
     const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
     for (const area of mapAreas) {
-      // draw building
+      let offset = area.transform ?
+        [area.transform[0] + canvasPadding, area.transform[1] + canvasPadding] : 
+        [canvasPadding, canvasPadding];
       const path2d = new Path2D(
-        buildPathFromRelativePoints(area.size, area.points!)
+        buildPathFromRelativePointsAndTranslate(area.size, area.points!, offset)
       );
       const targetRate = LEVELS[areaLevelMap[area.name] ?? (LEVELS.length - 1)];
       const colorTokenName = 
@@ -57,10 +61,6 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
             targetRate.levelDark : 
             targetRate.levelLight
         );
-      ctx.translate(
-        area.transform ? area.transform[0] : 0,
-        area.transform ? area.transform[1] : 0
-      );
       ctx.fillStyle =
         chakra.tokens.getByName(colorTokenName)?.value ||
         (theme === "dark" ? "#333" : "#fff");
@@ -68,10 +68,6 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       ctx.strokeStyle = theme === "dark" ? "#fff" : "#333";
       ctx.lineWidth = 2;
       ctx.stroke(path2d);
-      ctx.translate(
-        -(area.transform ? area.transform[0] : 0),
-        -(area.transform ? area.transform[1] : 0)
-      );
     }
     const mapLabels = MAP.layers.find(
       (layer) => layer.name === "label"
@@ -107,8 +103,8 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         const text = labelLines[i];
         const lineWidth = ctx.measureText(text).width;
         const transform = label.transform ?? [0, 0];
-        const x = transform[0] + (label.size[0] - lineWidth) / 2; // center align
-        const y = transform[1] + (label.size[1] - totalHeight) / 2 + i * 14;
+        const x = canvasPadding + transform[0] + (label.size[0] - lineWidth) / 2; // center align
+        const y = canvasPadding + transform[1] + (label.size[1] - totalHeight) / 2 + i * 14;
         ctx.fillText(text, x, y);
       }
     }
@@ -130,11 +126,14 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         (layer) => layer.name === "area"
       )?.layers!;
       for (const area of mapAreas) {
+        let offset = area.transform ?
+          [area.transform[0] + canvasPadding, area.transform[1] + canvasPadding] : 
+          [canvasPadding, canvasPadding];
         const path2d = new Path2D(
           buildPathFromRelativePointsAndTranslate(
             area.size,
             area.points!,
-            area.transform ?? [0, 0]
+            offset
           )
         );
         if (ctx.isPointInPath(path2d, x, y)) {
@@ -161,12 +160,12 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     <Center flex="1">
       <canvas
         ref={canvasRef}
-        width={MAP.size[0] * scale * (window.devicePixelRatio || 1)}
-        height={MAP.size[1] * scale * (window.devicePixelRatio || 1)}
+        width={(MAP.size[0] * scale + canvasPadding * 2) * (window.devicePixelRatio || 1)}
+        height={(MAP.size[1] * scale + canvasPadding * 2) * (window.devicePixelRatio || 1)}
         style={{
           display: "block",
-          width: MAP.size[0] * scale + "px",
-          height: MAP.size[1] * scale + "px",
+          width: (MAP.size[0] * scale + canvasPadding * 2) + "px",
+          height: (MAP.size[1] * scale + canvasPadding * 2) + "px",
           backgroundColor: "inherit",
           border: "none",
         }}

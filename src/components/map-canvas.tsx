@@ -133,7 +133,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         );
         if (ctx.isPointInPath(path2d, x, y)) {
           setAreaLevelMap((prev) => {
-            const cur = prev[area.name];
+            const cur = prev![area.name];
             if (cur === level) {
               return { ...prev, [area.name]: LEVELS.length - 1 };
             }

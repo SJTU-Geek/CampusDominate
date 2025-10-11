@@ -1,10 +1,12 @@
 import { LEVELS } from "@/constants/rates";
 import { MAP } from "@/models/map-data";
+import { useLocalStorageState } from "ahooks";
+import { SetState } from "ahooks/lib/createUseStorageState";
 import { createContext, useState } from "react";
 
 export interface LevelMapContextType {
   areaLevelMap: Record<string, number>;
-  setAreaLevelMap: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+  setAreaLevelMap: (value: SetState<Record<string, number>>) => void;
   resetLevelMap: () => void;
 }
 
@@ -19,7 +21,7 @@ const initialAreaLevelMap = Object.fromEntries(
 )
 
 export const LevelMapContextProvider = (props : any) => {
-  const [areaLevelMap, setAreaLevelMap] = useState<Record<string, number>>(initialAreaLevelMap);
+  const [areaLevelMap, setAreaLevelMap] = useLocalStorageState<Record<string, number>>("levelmap", { defaultValue: initialAreaLevelMap });
   
   const resetLevelMap = () => {
     setAreaLevelMap(initialAreaLevelMap);

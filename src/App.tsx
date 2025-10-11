@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
 import { Flex, VStack } from "@chakra-ui/react";
 import TitleBar from "@/components/titlebar";
-import { rates } from "@/constants/rates";
+import { LEVELS } from "@/constants/rates";
 import Footer from "@/components/footer";
 import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
@@ -10,13 +10,19 @@ import { ColorModeToggle } from "@/components/color-mode-toggle";
 import { useTheme } from "next-themes";
 import { ScreenshotTrigger } from "./components/screenshot-trigger";
 
+const initialAreaLevelMap = Object.fromEntries(
+  MAP.layers.find((layer) => layer.name === "area")?.layers!.map(x => [x.name, LEVELS.length - 1])!
+)
+
 const App: React.FC = () => {
   const theme = useTheme();
-  const [color, setColor] = useState(rates[0].value);
-  const [selectedColors, setSelectedColors] = useState<{
-    [name: string]: string;
-  }>({});
+  const [level, setLevel] = useState(0);
+  const [areaLevelMap, setAreaLevelMap] = useState<{
+    [name: string]: number;
+  }>(initialAreaLevelMap);
   const [scale, setScale] = useState(1);
+  const [backgroundColor, setBackgroundColor] = useState(theme.theme === "dark" ? "gray.900" : "pink.subtle");
+  const rootBoxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,23 +41,34 @@ const App: React.FC = () => {
     };
   }, []);
 
+  const handleBackgroundChange: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    //if (e.target == rootBoxRef.current) {
+      const r = Math.floor(Math.random() * 50) + 176;
+      const g = Math.floor(Math.random() * 50) + 176;
+      const b = Math.floor(Math.random() * 50) + 176;
+      setBackgroundColor('#' + r.toString(16) + g.toString(16) + b.toString(16));
+    //}
+  };
+
   return (
     <Flex
+      ref={rootBoxRef}
       gap="2"
       direction="column"
       justify="space-between"
       width="100dvw"
       height="100dvh"
-      backgroundColor={theme.theme === "dark" ? "gray.900" : "pink.subtle"}
+      backgroundColor={backgroundColor}
+      onClick={handleBackgroundChange}
     >
       <TitleBar />
       <MapCanvas
-        color={color}
+        level={level}
         scale={scale}
-        selectedColors={selectedColors}
-        setSelectedColors={setSelectedColors}
+        areaLevelMap={areaLevelMap}
+        setAreaLevelMap={setAreaLevelMap}
       />
-      <RateSelector color={color} onChange={setColor} />
+      <RateSelector level={level} onLevelChange={setLevel} />
       <VStack position="absolute" left="2" bottom="2">
         <ScreenshotTrigger />
         <ColorModeToggle />

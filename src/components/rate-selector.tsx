@@ -1,32 +1,32 @@
 import { Box, Button, VStack } from "@chakra-ui/react";
-import { rates } from "@/constants/rates";
+import { LEVELS } from "@/constants/rates";
 import { useTheme } from "next-themes";
 
 interface RateSelectorProps {
-  color: string;
-  onChange: (color: string) => void;
+  level: number;
+  onLevelChange: (color: number) => void;
 }
 
-const RateSelector: React.FC<RateSelectorProps> = ({ color, onChange }) => {
+const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange }) => {
   const { theme } = useTheme();
   return (
     <Box position="absolute" right="2" bottom="2">
       <VStack overflowX="auto" gap={1}>
-        {rates.map((item) => (
+        {LEVELS.map((item, index) => (
           <Button
-            key={item.value}
-            onClick={() => onChange(item.value)}
+            key={item.color}
+            onClick={() => onLevelChange(index)}
             p={1}
             border="1.5px solid"
             borderColor={
-              color === item.value ? `${item.value}.solid` : theme === "dark" ? "#fff" : "#333"
+              level === index ? `${item.color}.solid` : theme === "dark" ? "#fff" : "#333"
             }
             backgroundColor={
-              color === item.value
-                ? `${item.value}.solid`
-                : `${item.value}.subtle`
+              level === index
+                ? `${item.color}.solid`
+                : `${item.color}.subtle`
             }
-            color={color === item.value ? "white" : `${item.value}.solid`}
+            color={level === index ? "white" : `${item.color}.solid`}
             fontSize="sm"
             borderRadius="none"
           >

@@ -1,29 +1,30 @@
 import { useTheme } from "next-themes";
 import React, { useRef, useEffect, useCallback } from "react";
-import { Center } from "@chakra-ui/react";
+import { Center, useChakraContext } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
 import {
   buildPathFromRelativePoints,
   buildPathFromRelativePointsAndTranslate,
 } from "@/utils/shape";
-import { colorMap } from "@/constants/colors";
+import { LEVELS } from "@/constants/rates";
 
 interface MapCanvasProps {
-  color: string;
+  level: number;
   scale: number;
-  selectedColors: { [name: string]: string };
-  setSelectedColors: React.Dispatch<
-    React.SetStateAction<{ [name: string]: string }>
+  areaLevelMap: { [name: string]: number };
+  setAreaLevelMap: React.Dispatch<
+    React.SetStateAction<{ [name: string]: number }>
   >;
 }
 
 const MapCanvas: React.FC<MapCanvasProps> = ({
-  color,
+  level,
   scale,
-  selectedColors,
-  setSelectedColors,
+  areaLevelMap,
+  setAreaLevelMap,
 }) => {
   const { theme } = useTheme();
+  const chakra = useChakraContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const draw = useCallback(() => {
@@ -46,12 +47,22 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const path2d = new Path2D(
         buildPathFromRelativePoints(area.size, area.points!)
       );
+      const targetRate = LEVELS[areaLevelMap[area.name] ?? (LEVELS.length - 1)];
+      const colorTokenName = 
+        "colors." + 
+        targetRate.color + 
+        "." + 
+        (
+          theme === "dark" ? 
+            targetRate.levelDark : 
+            targetRate.levelLight
+        );
       ctx.translate(
         area.transform ? area.transform[0] : 0,
         area.transform ? area.transform[1] : 0
       );
       ctx.fillStyle =
-        colorMap[selectedColors[area.name]] ||
+        chakra.tokens.getByName(colorTokenName)?.value ||
         (theme === "dark" ? "#333" : "#fff");
       ctx.fill(path2d);
       ctx.strokeStyle = theme === "dark" ? "#fff" : "#333";
@@ -89,8 +100,9 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const totalHeight = labelLines.length * 14; // assuming 14px line height
       const totalWidth = maxWidth;
       ctx.font = "14px Sans-serif";
-      ctx.fillStyle =
-        theme === "dark" || !!selectedColors[label.name] ? "#fff" : "#333";
+      ctx.fillStyle = areaLevelMap[label.name] == LEVELS.length - 1 ? 
+        (theme === "dark" ? "#fff" : "#333") :
+        "#fff";
       for (let i = 0; i < labelLines.length; i++) {
         const text = labelLines[i];
         const lineWidth = ctx.measureText(text).width;
@@ -100,7 +112,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         ctx.fillText(text, x, y);
       }
     }
-  }, [selectedColors, color, theme, scale]);
+  }, [areaLevelMap, theme, scale]);
 
   const handleCanvasClick = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -126,21 +138,19 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
           )
         );
         if (ctx.isPointInPath(path2d, x, y)) {
-          setSelectedColors((prev) => {
+          setAreaLevelMap((prev) => {
             const cur = prev[area.name];
-            if (cur === color) {
-              // toggle off
-              const copy = { ...prev };
-              delete copy[area.name];
-              return copy;
+            if (cur === level) {
+              return { ...prev, [area.name]: LEVELS.length - 1 };
             }
-            return { ...prev, [area.name]: color };
+            return { ...prev, [area.name]: level };
           });
+          e.stopPropagation();
           break;
         }
       }
     },
-    [color, setSelectedColors]
+    [level, setAreaLevelMap]
   );
 
   useEffect(() => {

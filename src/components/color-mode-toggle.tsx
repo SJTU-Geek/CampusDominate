@@ -4,8 +4,9 @@ import { LuMoon, LuSun } from "react-icons/lu";
 
 export function ColorModeToggle() {
   const { theme, setTheme } = useTheme();
-  const toggleColorMode = () => {
+  const toggleColorMode: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     setTheme(theme === "light" ? "dark" : "light");
+    e.stopPropagation();
   };
   return (
     <IconButton

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
 import { Flex, VStack } from "@chakra-ui/react";
 import TitleBar from "@/components/titlebar";
@@ -42,14 +42,25 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const handleBackgroundChange: React.MouseEventHandler<HTMLDivElement> = (e) => {
+  const handleBackgroundChange = useCallback(() => {
     //if (e.target == rootBoxRef.current) {
+    if (theme.theme == 'dark') {
+      const r = Math.floor(Math.random() * 40) + 10;
+      const g = Math.floor(Math.random() * 40) + 10;
+      const b = Math.floor(Math.random() * 40) + 10;
+      setBackgroundColor('#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0'));
+    }
+    else {
       const r = Math.floor(Math.random() * 50) + 176;
       const g = Math.floor(Math.random() * 50) + 176;
       const b = Math.floor(Math.random() * 50) + 176;
       setBackgroundColor('#' + r.toString(16) + g.toString(16) + b.toString(16));
-    //}
-  };
+    }
+  }, [theme.theme]);
+
+  useEffect(() => {
+    handleBackgroundChange();
+  }, [theme.theme])
 
   return (
     <Flex

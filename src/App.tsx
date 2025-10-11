@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
 import { Flex, VStack } from "@chakra-ui/react";
 import TitleBar from "@/components/titlebar";
-import { LEVELS } from "@/constants/rates";
 import Footer from "@/components/footer";
 import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
@@ -10,17 +9,11 @@ import { ColorModeToggle } from "@/components/color-mode-toggle";
 import { useTheme } from "next-themes";
 import { ScreenshotTrigger } from "./components/screenshot-trigger";
 import "@/styles/global.css";
-
-const initialAreaLevelMap = Object.fromEntries(
-  MAP.layers.find((layer) => layer.name === "area")?.layers!.map(x => [x.name, LEVELS.length - 1])!
-)
+import { ResetControl } from "./components/reset-control";
 
 const App: React.FC = () => {
   const theme = useTheme();
   const [level, setLevel] = useState(0);
-  const [areaLevelMap, setAreaLevelMap] = useState<{
-    [name: string]: number;
-  }>(initialAreaLevelMap);
   const [scale, setScale] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState(theme.theme === "dark" ? "gray.900" : "pink.subtle");
   const rootBoxRef = useRef<HTMLDivElement>(null);
@@ -79,13 +72,12 @@ const App: React.FC = () => {
         level={level}
         scale={scale}
         canvasPadding={canvasPadding}
-        areaLevelMap={areaLevelMap}
-        setAreaLevelMap={setAreaLevelMap}
       />
       <RateSelector level={level} onLevelChange={setLevel} />
       <VStack position="absolute" left="2" bottom="2">
         <ScreenshotTrigger />
         <ColorModeToggle />
+        <ResetControl />
       </VStack>
       <Footer />
     </Flex>

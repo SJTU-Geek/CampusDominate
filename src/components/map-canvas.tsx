@@ -1,33 +1,28 @@
 import { useTheme } from "next-themes";
-import React, { useRef, useEffect, useCallback } from "react";
+import React, { useRef, useEffect, useCallback, useContext } from "react";
 import { Center, useChakraContext } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
 import {
-  buildPathFromRelativePoints,
   buildPathFromRelativePointsAndTranslate,
 } from "@/utils/shape";
 import { LEVELS } from "@/constants/rates";
+import { LevelMapContext } from "@/contexts/level-map";
 
 interface MapCanvasProps {
   level: number;
   scale: number;
   canvasPadding: number;
-  areaLevelMap: { [name: string]: number };
-  setAreaLevelMap: React.Dispatch<
-    React.SetStateAction<{ [name: string]: number }>
-  >;
 }
 
 const MapCanvas: React.FC<MapCanvasProps> = ({
   level,
   scale,
   canvasPadding,
-  areaLevelMap,
-  setAreaLevelMap,
 }) => {
   const { theme } = useTheme();
   const chakra = useChakraContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { areaLevelMap, setAreaLevelMap } = useContext(LevelMapContext);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;

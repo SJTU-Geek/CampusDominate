@@ -9,6 +9,7 @@ import RateSelector from "@/components/rate-selector";
 import { ColorModeToggle } from "@/components/color-mode-toggle";
 import { useTheme } from "next-themes";
 import { ScreenshotTrigger } from "./components/screenshot-trigger";
+import "@/styles/global.css";
 
 const initialAreaLevelMap = Object.fromEntries(
   MAP.layers.find((layer) => layer.name === "area")?.layers!.map(x => [x.name, LEVELS.length - 1])!

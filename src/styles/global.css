@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'JiaLiDaYuanJ'; /* 你自定义的字体名 */
+  src: url('/src/assets/font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  font-family: 'JiaLiDaYuanJ', sans-serif;
+}

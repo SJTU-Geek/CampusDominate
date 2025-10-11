@@ -99,7 +99,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       }
       const totalHeight = labelLines.length * 14; // assuming 14px line height
       const totalWidth = maxWidth;
-      ctx.font = "14px Sans-serif";
+      ctx.font = "14px JiaLiDaYuanJ";
       ctx.fillStyle = areaLevelMap[label.name] == LEVELS.length - 1 ? 
         (theme === "dark" ? "#fff" : "#333") :
         "#fff";

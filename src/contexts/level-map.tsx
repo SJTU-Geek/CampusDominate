@@ -2,7 +2,7 @@ import { LEVELS } from "@/constants/rates";
 import { MAP } from "@/models/map-data";
 import { useLocalStorageState } from "ahooks";
 import { SetState } from "ahooks/lib/createUseStorageState";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export interface LevelMapContextType {
   areaLevelMap: Record<string, number>;

@@ -7,9 +7,9 @@ import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
 import { ColorModeToggle } from "@/components/color-mode-toggle";
 import { useTheme } from "next-themes";
-import { ScreenshotTrigger } from "./components/screenshot-trigger";
+import { ScreenshotTrigger } from "@/components/screenshot-trigger";
 import "@/styles/global.css";
-import { ResetControl } from "./components/reset-control";
+import { ResetControl } from "@/components/reset-control";
 
 const App: React.FC = () => {
   const theme = useTheme();
@@ -24,7 +24,6 @@ const App: React.FC = () => {
       const viewport = window.visualViewport;
       const width = viewport ? viewport.width : window.innerWidth;
       const height = viewport ? viewport.height : window.innerHeight;
-      console.log("Window size:", width, height);
       let widthScale = (width - 50) / (MAP.size[0] + canvasPadding * 2);
       let heightScale = (height - 120) / (MAP.size[1] + canvasPadding * 2);
       setScale(Math.min(widthScale, heightScale));

@@ -1,6 +1,5 @@
-import { Box, Button, ButtonGroup, VStack } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import { LEVELS } from "@/constants/rates";
-import { useTheme } from "next-themes";
 
 interface RateSelectorProps {
   level: number;
@@ -8,7 +7,6 @@ interface RateSelectorProps {
 }
 
 const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange }) => {
-  const { theme } = useTheme();
   return (
     <Box position="absolute" right="2" bottom="2">
       <ButtonGroup size="lg" flexDirection="column" variant="outline" attached>

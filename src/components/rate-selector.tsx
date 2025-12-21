@@ -1,5 +1,7 @@
+import React, { useContext } from "react";
 import { Box, Button, ButtonGroup } from "@chakra-ui/react";
 import { LEVELS } from "@/constants/rates";
+import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 
 interface RateSelectorProps {
   level: number;
@@ -7,6 +9,8 @@ interface RateSelectorProps {
 }
 
 const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange }) => {
+  const { setSelectedEmoji } = useContext(EmojiStickerContext);
+
   return (
     <Box position="absolute" right="2" bottom="2">
       <ButtonGroup size="lg" flexDirection="column" variant="outline" attached>
@@ -15,6 +19,7 @@ const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange }) => 
             key={item.color}
             onClick={(e) => {
               e.stopPropagation();
+              setSelectedEmoji(null);
               onLevelChange(index);
             }}
             p={1}

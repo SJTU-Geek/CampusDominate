@@ -2,6 +2,7 @@ import { IconButton, useChakraContext } from "@chakra-ui/react";
 import { useCallback, useContext } from "react";
 import { LuCamera } from "react-icons/lu";
 import { LevelMapContext } from "@/contexts/level-map";
+import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 import { useTheme } from "next-themes";
 import { MAP } from "@/models/map-data";
 import { LEVELS } from "@/constants/rates";
@@ -10,6 +11,7 @@ import template_light from "@/assets/template_light.png";
 
 export const ScreenshotTrigger = () => {
   const { areaLevelMap } = useContext(LevelMapContext);
+  const { stickers: emojiStickers } = useContext(EmojiStickerContext);
   const { theme } = useTheme();
   const chakra = useChakraContext();
 
@@ -45,6 +47,7 @@ export const ScreenshotTrigger = () => {
         MAP,
         LEVELS,
         areaLevelMap,
+        emojiStickers,
         theme,
         canvasPadding,
         mapWidth,
@@ -68,7 +71,7 @@ export const ScreenshotTrigger = () => {
     } catch (error) {
       console.error("Screenshot failed:", error);
     }
-  }, [areaLevelMap, theme]);
+  }, [areaLevelMap, emojiStickers, theme]);
 
   return (
     <IconButton onClick={handleScreenshot} aria-label="screenshot">
@@ -76,5 +79,4 @@ export const ScreenshotTrigger = () => {
     </IconButton>
   );
 };
-
 

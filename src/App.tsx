@@ -10,6 +10,7 @@ import { useTheme } from "next-themes";
 import { ScreenshotTrigger } from "@/components/screenshot-trigger";
 import "@/styles/global.css";
 import { ResetControl } from "@/components/reset-control";
+import { EmojiStickerControl } from "@/components/emoji-sticker-control";
 
 const App: React.FC = () => {
   const theme = useTheme();
@@ -75,6 +76,7 @@ const App: React.FC = () => {
       <RateSelector level={level} onLevelChange={setLevel} />
       <VStack position="absolute" left="2" bottom="2">
         <ScreenshotTrigger />
+        <EmojiStickerControl />
         <ColorModeToggle />
         <ResetControl />
       </VStack>

@@ -1,4 +1,5 @@
 import { LevelMapContext } from "@/contexts/level-map";
+import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 import { Button, CloseButton, Dialog, IconButton, Portal, useDialog, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 import { LuRefreshCw } from "react-icons/lu";
@@ -6,8 +7,10 @@ import { LuRefreshCw } from "react-icons/lu";
 export function ResetControl() {
   const dialog = useDialog();
   const { resetLevelMap } = useContext(LevelMapContext);
+  const { clearStickers } = useContext(EmojiStickerContext);
   const onResetButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     resetLevelMap();
+    clearStickers();
     dialog.setOpen(false);
     e.stopPropagation();
   };
@@ -28,7 +31,7 @@ export function ResetControl() {
               <Dialog.Title>请确认</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
-              <Text textStyle="xl">清空地图数据？</Text>
+              <Text textStyle="xl">清空地图数据和表情？</Text>
             </Dialog.Body>
             <Dialog.Footer>
               <Dialog.ActionTrigger asChild>

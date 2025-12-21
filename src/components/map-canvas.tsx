@@ -7,6 +7,7 @@ import {
 } from "@/utils/shape";
 import { LEVELS } from "@/constants/rates";
 import { LevelMapContext } from "@/contexts/level-map";
+import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 
 interface MapCanvasProps {
   level: number;
@@ -23,6 +24,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   const chakra = useChakraContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { areaLevelMap, setAreaLevelMap } = useContext(LevelMapContext);
+  const { stickers, addSticker, selectedEmoji } = useContext(EmojiStickerContext);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -103,7 +105,20 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         ctx.fillText(text, x, y);
       }
     }
-  }, [areaLevelMap, theme, scale]);
+    if (stickers.length) {
+      ctx.save();
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.font =
+        "32px \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Noto Color Emoji\", sans-serif";
+      for (const sticker of stickers) {
+        const x = sticker.x + canvasPadding;
+        const y = sticker.y + canvasPadding;
+        ctx.fillText(sticker.emoji, x, y);
+      }
+      ctx.restore();
+    }
+  }, [areaLevelMap, canvasPadding, chakra, scale, stickers, theme]);
 
   const handleCanvasClick = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -116,6 +131,14 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const dpr = window.devicePixelRatio || 1;
       const x = (e.clientX - rect.left) * dpr;
       const y = (e.clientY - rect.top) * dpr;
+
+      if (selectedEmoji) {
+        const mapX = x / (dpr * scale) - canvasPadding;
+        const mapY = y / (dpr * scale) - canvasPadding;
+        addSticker(selectedEmoji, mapX, mapY);
+        e.stopPropagation();
+        return;
+      }
 
       const mapAreas = MAP.layers.find(
         (layer) => layer.name === "area"
@@ -144,7 +167,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         }
       }
     },
-    [level, setAreaLevelMap]
+    [addSticker, canvasPadding, level, scale, selectedEmoji, setAreaLevelMap]
   );
 
   useEffect(() => {

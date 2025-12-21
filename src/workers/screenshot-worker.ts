@@ -6,6 +6,7 @@ self.onmessage = async (e) => {
     MAP, 
     LEVELS, 
     areaLevelMap, 
+    emojiStickers, 
     theme, 
     mapWidth, 
     mapHeight, 
@@ -98,6 +99,16 @@ self.onmessage = async (e) => {
       const x = transform[0] + (label.size[0] - lineWidth) / 2; // center align
       const y = transform[1] + (label.size[1] - totalHeight) / 2 + i * 14;
       ctx.fillText(text, x, y);
+    }
+  }
+
+  // draw emoji to saved image (36px)
+  if (emojiStickers?.length) {
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.font = "36px \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Noto Color Emoji\", sans-serif";
+    for (const sticker of emojiStickers) {
+      ctx.fillText(sticker.emoji, sticker.x, sticker.y);
     }
   }
   // ctx.resetTransform();

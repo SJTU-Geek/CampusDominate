@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
-import { Box, Button, Center, Flex, Text, VStack } from "@chakra-ui/react";
-import TitleBar from "@/components/titlebar";
+import { Box, Button, Center, Flex, Stack, Text, VStack } from "@chakra-ui/react";
 import Footer from "@/components/footer";
 import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
@@ -13,10 +12,10 @@ import { ResetControl } from "@/components/reset-control";
 import { EmojiStickerControl } from "@/components/emoji-sticker-control";
 import { LayoutMode } from "./enums/layout-mode";
 import { RegionSelector } from "./components/region-selector";
+import AppTitle from "./components/app-title";
 
 const App: React.FC = () => {
   const theme = useTheme();
-  const [level, setLevel] = useState(0);
   const [scale, setScale] = useState(1);
   const [aspect, setAspect] = useState<number>(1);
   const [backgroundColor, setBackgroundColor] = useState(theme.theme === "dark" ? "gray.900" : "pink.subtle");
@@ -80,13 +79,12 @@ const App: React.FC = () => {
       direction="column"
       justify="space-between"
     >
-      <TitleBar />
+      <AppTitle />
       <MapCanvas
-        level={level}
         scale={scale}
         canvasPadding={canvasPadding}
       />
-      <RateSelector level={level} onLevelChange={setLevel} />
+      <RateSelector/>
       <VStack position="absolute" left="2" bottom="2">
         <ShareControl />
         <EmojiStickerControl />
@@ -104,21 +102,28 @@ const App: React.FC = () => {
       justify="space-between"
       height="100%"
     >
-      <Center gap={12} onClick={(e) => { e.stopPropagation(); }}>
-        <TitleBar />
-        <RegionSelector />
-        <RateSelector 
-          level={level} 
-          onLevelChange={setLevel} 
-          absolute={false}
-          direction="h"
-        />
-        <EmojiStickerControl/>
-        <ResetControl />
-        <ShareControl />
-      </Center>
+      <Flex 
+        align="center"
+        justify="space-between" 
+        onClick={(e) => { e.stopPropagation(); }}
+        padding="0px 100px"
+        width="100%"
+        minHeight="80px"
+        backdropFilter="hue-rotate(10deg) saturate(160%)"
+      >
+        <AppTitle />
+        <Stack direction="row">
+          <RegionSelector />
+          <RateSelector 
+            absolute={false}
+            direction="h"
+          />
+          <EmojiStickerControl/>
+          <ResetControl />
+          <ShareControl />
+        </Stack>
+      </Flex>
       <MapCanvas
-        level={level}
         scale={scale}
         canvasPadding={canvasPadding}
       />
@@ -132,13 +137,12 @@ const App: React.FC = () => {
       direction="column"
       justify="space-between"
     >
-      <TitleBar />
+      <AppTitle />
       <MapCanvas
-        level={level}
         scale={scale}
         canvasPadding={canvasPadding}
       />
-      <RateSelector level={level} onLevelChange={setLevel} />
+      <RateSelector />
       <VStack position="absolute" left="2" bottom="2">
         <ShareControl />
         <EmojiStickerControl />
@@ -155,13 +159,12 @@ const App: React.FC = () => {
       direction="column"
       justify="space-between"
     >
-      <TitleBar />
+      <AppTitle />
       <MapCanvas
-        level={level}
         scale={scale}
         canvasPadding={canvasPadding}
       />
-      <RateSelector level={level} onLevelChange={setLevel} />
+      <RateSelector />
       <VStack position="absolute" left="2" bottom="2">
         <ShareControl />
         <EmojiStickerControl />
@@ -178,13 +181,12 @@ const App: React.FC = () => {
       direction="column"
       justify="space-between"
     >
-      <TitleBar />
+      <AppTitle />
       <MapCanvas
-        level={level}
         scale={scale}
         canvasPadding={canvasPadding}
       />
-      <RateSelector level={level} onLevelChange={setLevel} />
+      <RateSelector />
       <VStack position="absolute" left="2" bottom="2">
         <ShareControl />
         <EmojiStickerControl />
@@ -219,7 +221,7 @@ const App: React.FC = () => {
           }
         })()
       }
-      <Text position={'absolute'} top={0}>Layout: {layoutMode.toString()} ({(aspect*9).toFixed(2)}):9</Text>
+      {/* <Text position={'absolute'} top={0}>Layout: {layoutMode.toString()} ({(aspect*9).toFixed(2)}):9</Text> */}
     </Box>
   );
 };

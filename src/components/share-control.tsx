@@ -1,6 +1,6 @@
-import { IconButton, useChakraContext } from "@chakra-ui/react";
+import { Button, IconButton, useChakraContext } from "@chakra-ui/react";
 import { useCallback, useContext } from "react";
-import { LuCamera } from "react-icons/lu";
+import { LuCamera, LuShare, LuShare2 } from "react-icons/lu";
 import { useTheme } from "next-themes";
 import { MAP } from "@/models/map-data";
 import { LEVELS } from "@/constants/rates";
@@ -72,9 +72,9 @@ export const ShareControl = () => {
   }, [areaLevelMap, emojiStickers, theme]);
 
   return (
-    <IconButton onClick={handleScreenshot} aria-label="screenshot">
-      <LuCamera />
-    </IconButton>
+    <Button onClick={handleScreenshot} aria-label="screenshot">
+      <LuShare2 /> 分享
+    </Button>
   );
 };
 

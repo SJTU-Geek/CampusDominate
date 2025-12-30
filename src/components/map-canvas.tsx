@@ -10,13 +10,11 @@ import { DrawStateContext } from "@/contexts/draw-state";
 import { ControlSettingContext } from "@/contexts/control-setting";
 
 interface MapCanvasProps {
-  level: number;
   scale: number;
   canvasPadding: number;
 }
 
 const MapCanvas: React.FC<MapCanvasProps> = ({
-  level,
   scale,
   canvasPadding,
 }) => {
@@ -29,7 +27,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     stickers, 
     addSticker,
   } = useContext(DrawStateContext);
-  const { selectedEmoji } = useContext(ControlSettingContext);
+  const { selectedEmoji, level } = useContext(ControlSettingContext);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;

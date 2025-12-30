@@ -15,11 +15,11 @@ export function ResetControl() {
   return (
     <Dialog.RootProvider value={dialog}>
       <Dialog.Trigger asChild>
-        <IconButton onClick={(e) => {e.stopPropagation();}}
+        <Button onClick={(e) => {e.stopPropagation();}}
           variant="ghost"
         >
-          <LuRefreshCw/>
-        </IconButton>
+          <LuRefreshCw/> 重置
+        </Button>
       </Dialog.Trigger>
       <Portal>
         <Dialog.Backdrop/>

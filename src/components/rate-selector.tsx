@@ -4,14 +4,17 @@ import { LEVELS } from "@/constants/rates";
 import { ControlSettingContext } from "@/contexts/control-setting";
 
 interface RateSelectorProps {
-  level: number;
-  onLevelChange: (color: number) => void;
-  absolute: boolean;
-  direction: "v" | "h";
+  absolute?: boolean;
+  wrap?: boolean;
+  direction?: "v" | "h";
 }
 
-const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange, ...props }) => {
-  const { setSelectedEmoji } = useContext(ControlSettingContext);
+const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
+  absolute: true,
+  wrap: false,
+  direction: "v",
+}) => {
+  const { setSelectedEmoji, level, setLevel } = useContext(ControlSettingContext);
   const absoluteProps = props.absolute ? {
     position: "absolute",
     right: "2",
@@ -27,7 +30,7 @@ const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange, ...pr
             onClick={(e) => {
               e.stopPropagation();
               setSelectedEmoji(null);
-              onLevelChange(index);
+              setLevel(index);
             }}
             p={1}
             height="auto"
@@ -45,7 +48,7 @@ const RateSelector: React.FC<RateSelectorProps> = ({ level, onLevelChange, ...pr
             padding="4px 8px"
             borderRadius="none"
           >
-            {props.direction == "h" ? (
+            {props.wrap ? (
               <Box as="span" display="inline-block" textAlign="center" lineHeight="1.2rem">
                 {item.title.slice(0,2)}
                 <br />

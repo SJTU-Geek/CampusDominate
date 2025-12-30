@@ -68,14 +68,22 @@ export const EmojiStickerControl = () => {
           <IconButton
             onClick={handleToggle}
             aria-label="pick-emoji"
-            fontSize="xl"
-            variant={"solid"}
+            color={"black"}
+            borderRadius="24px"
+            border={"none"}
+            background={"linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)"}
+            width="auto"
+            minWidth="48px"
+            height="48px"
           >
             <Span>
               {
                 selectedEmoji !== null ? 
-                  <Emoji unified={selectedEmoji.unified} size={24} emojiStyle={EmojiStyle.GOOGLE}/> : 
-                  <LuSmilePlus />
+                  <Emoji unified={selectedEmoji.unified} size={26} emojiStyle={EmojiStyle.GOOGLE}/> : 
+                  <Stack direction="row" marginInline="20px">
+                    <LuSmilePlus size={24} />
+                    贴表情
+                  </Stack>
               }
             </Span>
           </IconButton>
@@ -93,7 +101,7 @@ export const EmojiStickerControl = () => {
                 backgroundColor={theme === "dark" ? "gray.800" : "white"}
                 color={theme === "dark" ? "gray.100" : "gray.800"}
                 p="2"
-                width="280px"
+                width="320px"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Box borderRadius="md" overflow="hidden">
@@ -103,8 +111,8 @@ export const EmojiStickerControl = () => {
                     emojiStyle={EmojiStyle.GOOGLE}
                     theme={pickerTheme}
                     previewConfig={{ showPreview: false }}
-                    width={260}
-                    height={200}
+                    width={300}
+                    height={300}
                     style={pickerStyle}
                     searchDisabled
                   />

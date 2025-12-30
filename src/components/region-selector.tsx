@@ -1,11 +1,7 @@
 import { REGIONS } from "@/constants/regions";
+import { ControlSettingContext } from "@/contexts/control-setting";
 import { Portal, Select, createListCollection } from "@chakra-ui/react";
-import { useState } from "react";
-
-export interface RegionSelectorProps {
-  region: string;
-  setRegion: React.Dispatch<React.SetStateAction<string>>;
-}
+import { useContext, useState } from "react";
 
 const regions = createListCollection({
   items: REGIONS.map(r => ({
@@ -14,16 +10,15 @@ const regions = createListCollection({
   })),
 })
 
-export const RegionSelector = (props: RegionSelectorProps) => {
-  const [value, setValue] = useState<string[]>([]);
-  console.log(value)
+export const RegionSelector = () => {
+  const { region, setRegion } = useContext(ControlSettingContext);
   return (
     <Select.Root
       collection={regions}
       width="120px"
       variant="subtle"
-      value={value}
-      onValueChange={(e) => setValue(e.value)}
+      value={[region]}
+      onValueChange={(e) => setRegion(e.value[0])}
     >
       <Select.HiddenSelect />
       <Select.Control>

@@ -1,5 +1,6 @@
 import { OffscreenMapRenderingContext } from "@/models/contexts";
 import { buildPathFromRelativePointsAndTranslate } from "@/utils/shape";
+import font from "@/assets/font.ttf";
 
 self.onmessage = async (e) => {
   const { 
@@ -16,7 +17,7 @@ self.onmessage = async (e) => {
     scale
   } = e.data as OffscreenMapRenderingContext;
   const [width, height] = [1792, 2400];
-  const fontFace = new FontFace('JiaLiDaYuanJ', 'url(../assets/font.ttf)');
+  const fontFace = new FontFace('JiaLiDaYuanJ', `url(${font})`);
   await fontFace.load();
   // @ts-ignore 
   self.fonts.add(fontFace);

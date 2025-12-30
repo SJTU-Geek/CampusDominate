@@ -54,18 +54,12 @@ const App: React.FC = () => {
   }, []);
 
   const handleBackgroundChange = useCallback(() => {
-    //if (e.target == rootBoxRef.current) {
+    var hue = Math.random() * 360;
     if (theme.theme == 'dark') {
-      const r = Math.floor(Math.random() * 40) + 10;
-      const g = Math.floor(Math.random() * 40) + 10;
-      const b = Math.floor(Math.random() * 40) + 10;
-      setBackgroundColor('#' + r.toString(16).padStart(2, '0') + g.toString(16).padStart(2, '0') + b.toString(16).padStart(2, '0'));
+      setBackgroundColor(`oklch(0.3 0.03 ${hue})`);
     }
     else {
-      const r = Math.floor(Math.random() * 50) + 176;
-      const g = Math.floor(Math.random() * 50) + 176;
-      const b = Math.floor(Math.random() * 50) + 176;
-      setBackgroundColor('#' + r.toString(16) + g.toString(16) + b.toString(16));
+      setBackgroundColor(`oklch(0.96 0.02 ${hue})`);
     }
   }, [theme.theme]);
 

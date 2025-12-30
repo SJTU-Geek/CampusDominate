@@ -1,17 +1,15 @@
 import { IconButton, useChakraContext } from "@chakra-ui/react";
 import { useCallback, useContext } from "react";
 import { LuCamera } from "react-icons/lu";
-import { LevelMapContext } from "@/contexts/level-map";
-import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 import { useTheme } from "next-themes";
 import { MAP } from "@/models/map-data";
 import { LEVELS } from "@/constants/rates";
 import { OffscreenMapRenderingContext } from "@/models/contexts";
 import template_light from "@/assets/template_light.png";
+import { DrawStateContext } from "@/contexts/draw-state";
 
-export const ScreenshotTrigger = () => {
-  const { areaLevelMap } = useContext(LevelMapContext);
-  const { stickers: emojiStickers } = useContext(EmojiStickerContext);
+export const ShareControl = () => {
+  const { areaLevelMap, stickers: emojiStickers } = useContext(DrawStateContext);
   const { theme } = useTheme();
   const chakra = useChakraContext();
 

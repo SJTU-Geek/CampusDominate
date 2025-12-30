@@ -1,16 +1,18 @@
 import type React from "react";
 import { useContext, useMemo, useState } from "react";
 import EmojiPicker, {
+  Emoji,
   EmojiClickData,
   Theme as EmojiPickerTheme,
+  EmojiStyle,
 } from "emoji-picker-react";
-import { Box, Button, IconButton, Portal, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, IconButton, Popover, Portal, Span, Stack, Text } from "@chakra-ui/react";
 import { useTheme } from "next-themes";
-import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 import { LuSmilePlus, LuX } from "react-icons/lu";
+import { ControlSettingContext } from "@/contexts/control-setting";
 
 export const EmojiStickerControl = () => {
-  const { selectedEmoji, setSelectedEmoji } = useContext(EmojiStickerContext);
+  const { selectedEmoji, setSelectedEmoji } = useContext(ControlSettingContext);
   const { theme } = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -28,7 +30,7 @@ export const EmojiStickerControl = () => {
   }, []);
 
   const handleEmojiClick = (emojiData: EmojiClickData) => {
-    setSelectedEmoji(emojiData.emoji);
+    setSelectedEmoji(emojiData);
     setOpen(false);
   };
 
@@ -60,69 +62,74 @@ export const EmojiStickerControl = () => {
   };
 
   return (
-    <Box position="relative" w="100%">
-      <IconButton
-        onClick={handleToggle}
-        aria-label="pick-emoji"
-        fontSize="xl"
-        variant={selectedEmoji ? "solid" : "ghost"}
-      >
-        {selectedEmoji ?? <LuSmilePlus />}
-      </IconButton>
-      {open && (
-        <Portal>
-          <Box
-            position="fixed"
-            inset="0"
-            zIndex={1400}
-            backgroundColor="transparent"
-            onClick={handleOverlayClick}
-          />
-          <Box
-            position="fixed"
-            left="54px"
-            bottom="72px"
-            zIndex={1500}
-            borderRadius="lg"
-            boxShadow="lg"
-            borderWidth="1px"
-            backgroundColor={theme === "dark" ? "gray.800" : "white"}
-            color={theme === "dark" ? "gray.100" : "gray.800"}
-            p="2"
-            width="280px"
-            onClick={(e) => e.stopPropagation()}
+    <Popover.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+      <Popover.Trigger asChild>
+        <Box position="relative">
+          <IconButton
+            onClick={handleToggle}
+            aria-label="pick-emoji"
+            fontSize="xl"
+            variant={"solid"}
           >
-            <Box borderRadius="md" overflow="hidden">
-              <EmojiPicker
-                onEmojiClick={handleEmojiClick}
-                lazyLoadEmojis
-                theme={pickerTheme}
-                previewConfig={{ showPreview: false }}
-                width={260}
-                height={200}
-                style={pickerStyle}
-                searchDisabled
-              />
-            </Box>
-            <Stack mt="2" direction="row" justify="space-between" gap="2">
-              <Button size="sm" variant="outline" onClick={handleStopPlacing}>
-                停止贴表情
-              </Button>
-              <Button
-                size="sm"
-                variant="ghost"
-                onClick={handleClose}
+            <Span>
+              {
+                selectedEmoji !== null ? 
+                  <Emoji unified={selectedEmoji.unified} size={24} emojiStyle={EmojiStyle.GOOGLE}/> : 
+                  <LuSmilePlus />
+              }
+            </Span>
+          </IconButton>
+        </Box>
+      </Popover.Trigger>
+      <Portal>
+        <Popover.Positioner>
+          <Popover.Content width="auto">
+            <Popover.Arrow />
+            <Popover.Body padding={0} background="transparent">
+              <Box
+                borderRadius="lg"
+                boxShadow="lg"
+                borderWidth="1px"
+                backgroundColor={theme === "dark" ? "gray.800" : "white"}
+                color={theme === "dark" ? "gray.100" : "gray.800"}
+                p="2"
+                width="280px"
+                onClick={(e) => e.stopPropagation()}
               >
-                <LuX />
-                收起
-              </Button>
-            </Stack>
-            <Text fontSize="sm" mt="1">
-              点击地图任意位置贴表情。
-            </Text>
-          </Box>
-        </Portal>
-      )}
-    </Box>
+                <Box borderRadius="md" overflow="hidden">
+                  <EmojiPicker
+                    onEmojiClick={handleEmojiClick}
+                    lazyLoadEmojis
+                    emojiStyle={EmojiStyle.GOOGLE}
+                    theme={pickerTheme}
+                    previewConfig={{ showPreview: false }}
+                    width={260}
+                    height={200}
+                    style={pickerStyle}
+                    searchDisabled
+                  />
+                </Box>
+                <Stack mt="2" direction="row" justify="space-between" gap="2">
+                  <Button size="sm" variant="outline" onClick={handleStopPlacing}>
+                    停止贴表情
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={handleClose}
+                  >
+                    <LuX />
+                    收起
+                  </Button>
+                </Stack>
+                <Text fontSize="sm" mt="1">
+                  点击地图任意位置贴表情。
+                </Text>
+              </Box>
+            </Popover.Body>
+          </Popover.Content>
+        </Popover.Positioner>
+      </Portal>
+    </Popover.Root>
   );
 };

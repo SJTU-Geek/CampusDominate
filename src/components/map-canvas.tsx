@@ -6,8 +6,8 @@ import {
   buildPathFromRelativePointsAndTranslate,
 } from "@/utils/shape";
 import { LEVELS } from "@/constants/rates";
-import { LevelMapContext } from "@/contexts/level-map";
-import { EmojiStickerContext } from "@/contexts/emoji-stickers";
+import { DrawStateContext } from "@/contexts/draw-state";
+import { ControlSettingContext } from "@/contexts/control-setting";
 
 interface MapCanvasProps {
   level: number;
@@ -23,8 +23,13 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   const { theme } = useTheme();
   const chakra = useChakraContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const { areaLevelMap, setAreaLevelMap } = useContext(LevelMapContext);
-  const { stickers, addSticker, selectedEmoji } = useContext(EmojiStickerContext);
+  const { 
+    areaLevelMap, 
+    setAreaLevelMap, 
+    stickers, 
+    addSticker,
+  } = useContext(DrawStateContext);
+  const { selectedEmoji } = useContext(ControlSettingContext);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -135,7 +140,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       if (selectedEmoji) {
         const mapX = x / (dpr * scale) - canvasPadding;
         const mapY = y / (dpr * scale) - canvasPadding;
-        addSticker(selectedEmoji, mapX, mapY);
+        addSticker(selectedEmoji.emoji, mapX, mapY);
         e.stopPropagation();
         return;
       }

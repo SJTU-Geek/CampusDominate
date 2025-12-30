@@ -1,13 +1,11 @@
-import { LevelMapContext } from "@/contexts/level-map";
-import { EmojiStickerContext } from "@/contexts/emoji-stickers";
 import { Button, CloseButton, Dialog, IconButton, Portal, useDialog, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 import { LuRefreshCw } from "react-icons/lu";
+import { DrawStateContext } from "@/contexts/draw-state";
 
 export function ResetControl() {
   const dialog = useDialog();
-  const { resetLevelMap } = useContext(LevelMapContext);
-  const { clearStickers } = useContext(EmojiStickerContext);
+  const { resetLevelMap, clearStickers } = useContext(DrawStateContext);
   const onResetButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     resetLevelMap();
     clearStickers();
@@ -17,7 +15,7 @@ export function ResetControl() {
   return (
     <Dialog.RootProvider value={dialog}>
       <Dialog.Trigger asChild>
-        <IconButton
+        <IconButton onClick={(e) => {e.stopPropagation();}}
           variant="ghost"
         >
           <LuRefreshCw/>
@@ -26,7 +24,7 @@ export function ResetControl() {
       <Portal>
         <Dialog.Backdrop/>
         <Dialog.Positioner>
-          <Dialog.Content onClick={(e) => {e.stopPropagation();}}>
+          <Dialog.Content>
             <Dialog.Header>
               <Dialog.Title>请确认</Dialog.Title>
             </Dialog.Header>

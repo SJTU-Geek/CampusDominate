@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
-import { Box, Button, Center, Flex, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Group, Separator, Stack, Text, useChakraContext, VStack } from "@chakra-ui/react";
 import Footer from "@/components/footer";
 import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
@@ -13,9 +13,11 @@ import { EmojiStickerControl } from "@/components/emoji-sticker-control";
 import { LayoutMode } from "./enums/layout-mode";
 import { RegionSelector } from "./components/region-selector";
 import AppTitle from "./components/app-title";
+import { rgba } from "polished";
 
 const App: React.FC = () => {
   const theme = useTheme();
+  const chakra = useChakraContext();
   const [scale, setScale] = useState(1);
   const [aspect, setAspect] = useState<number>(1);
   const [backgroundColor, setBackgroundColor] = useState(theme.theme === "dark" ? "gray.900" : "pink.subtle");
@@ -67,6 +69,12 @@ const App: React.FC = () => {
     handleBackgroundChange();
   }, [theme.theme]);
 
+  const navbarBgColor = useMemo(() => {
+    const bgToken = theme.theme == "dark" ? "colors.gray.950" : "colors.gray.50";
+    const bgValue = chakra.tokens.getByName(bgToken)?.value;
+    return rgba(bgValue, theme.theme == "dark" ? 0.6 : 0.6);
+  }, [theme.theme]);
+
   const NarrowView = () => (
     <Flex
       gap="2"
@@ -106,21 +114,37 @@ const App: React.FC = () => {
         backdropFilter="hue-rotate(10deg) saturate(160%)"
       >
         <AppTitle />
-        <Stack direction="row">
-          <RegionSelector />
-          <RateSelector 
-            absolute={false}
-            direction="h"
-          />
-          <EmojiStickerControl/>
-          <ResetControl />
-          <ShareControl />
+        <Stack 
+          gap={0} 
+          align="center" 
+          direction="row" 
+          borderRadius="24px" 
+          overflow="clip" 
+          borderWidth={1}
+          boxShadow="2px 2px 12px rgba(0, 0, 0, 0.04)"
+          background={navbarBgColor}
+          backdropFilter={"blur(10px)"}
+        >
+          <Group attached marginRight={4}>
+            <RegionSelector pl={6}/>
+            <RateSelector 
+              absolute={false}
+              direction="h"
+            />
+          </Group>
+          <Separator orientation="vertical" height="6" />
+          <Group attached>
+            <ResetControl />
+            <ShareControl pr={6} />
+          </Group>
         </Stack>
       </Flex>
       <MapCanvas
         scale={scale}
         canvasPadding={canvasPadding}
       />
+      {/* <ColorModeToggle />
+      <EmojiStickerControl/> */}
       <Footer absolute={true}/>
     </Flex>
   );

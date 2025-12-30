@@ -8,7 +8,11 @@ import { OffscreenMapRenderingContext } from "@/models/contexts";
 import template_light from "@/assets/template_light.png";
 import { DrawStateContext } from "@/contexts/draw-state";
 
-export const ShareControl = () => {
+interface ShareControlProps {
+  pr?: number;
+}
+
+export const ShareControl = (props: ShareControlProps) => {
   const { areaLevelMap, stickers: emojiStickers } = useContext(DrawStateContext);
   const { theme } = useTheme();
   const chakra = useChakraContext();
@@ -72,7 +76,12 @@ export const ShareControl = () => {
   }, [areaLevelMap, emojiStickers, theme]);
 
   return (
-    <Button onClick={handleScreenshot} aria-label="screenshot">
+    <Button 
+      onClick={handleScreenshot} 
+      variant="ghost"
+      padding="4px 12px"
+      paddingRight={props.pr}
+    >
       <LuShare2 /> 分享
     </Button>
   );

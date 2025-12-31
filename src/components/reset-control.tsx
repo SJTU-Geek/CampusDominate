@@ -3,7 +3,11 @@ import { useContext } from "react";
 import { LuRefreshCw } from "react-icons/lu";
 import { DrawStateContext } from "@/contexts/draw-state";
 
-export function ResetControl() {
+interface ResetControlProps {
+  pl?: number;
+}
+
+export function ResetControl(props: ResetControlProps) {
   const dialog = useDialog();
   const { resetLevelMap, clearStickers } = useContext(DrawStateContext);
   const onResetButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -19,6 +23,7 @@ export function ResetControl() {
           onClick={(e) => {e.stopPropagation();}}
           variant="ghost"
           padding="4px 12px"
+          paddingLeft={props.pl}
         >
           <LuRefreshCw/> 重置
         </Button>

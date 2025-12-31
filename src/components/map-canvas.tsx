@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 import React, { useRef, useEffect, useCallback, useContext } from "react";
-import { Center, useChakraContext } from "@chakra-ui/react";
+import { Center, Flex, useChakraContext } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
 import {
   buildPathFromRelativePointsAndTranslate,
@@ -12,11 +12,13 @@ import { ControlSettingContext } from "@/contexts/control-setting";
 interface MapCanvasProps {
   scale: number;
   canvasPadding: number;
+  align?: string;
 }
 
 const MapCanvas: React.FC<MapCanvasProps> = ({
   scale,
   canvasPadding,
+  align,
 }) => {
   const { theme } = useTheme();
   const chakra = useChakraContext();
@@ -178,7 +180,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   }, [draw]);
 
   return (
-    <Center flex="1">
+    <Flex flex="1" direction="row" align={align ?? "center"} justifyContent="center">
       <canvas
         ref={canvasRef}
         width={(MAP.size[0] * scale + canvasPadding * 2) * (window.devicePixelRatio || 1)}
@@ -192,7 +194,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         }}
         onClick={handleCanvasClick}
       />
-    </Center>
+    </Flex>
   );
 };
 

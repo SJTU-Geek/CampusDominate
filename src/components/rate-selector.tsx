@@ -7,6 +7,8 @@ interface RateSelectorProps {
   absolute?: boolean;
   wrap?: boolean;
   direction?: "v" | "h";
+  alignSelf?: string;
+  margin?: string;
 }
 
 const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
@@ -22,7 +24,7 @@ const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
   } : {};
 
   return (
-    <Box {...absoluteProps}>
+    <Box {...absoluteProps} alignSelf={props.alignSelf} margin={props.margin}>
       <ButtonGroup size="lg" flexDirection={props.direction == "h" ? "row" : "column"} variant="outline" attached>
         {LEVELS.map((item, index) => (
           <Button

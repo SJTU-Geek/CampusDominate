@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import MapCanvas from "@/components/map-canvas";
 import { Box, Button, Center, Flex, Group, Separator, Stack, Text, useChakraContext, VStack } from "@chakra-ui/react";
 import Footer from "@/components/footer";
@@ -14,14 +14,16 @@ import { LayoutMode } from "./enums/layout-mode";
 import { RegionSelector } from "./components/region-selector";
 import AppTitle from "./components/app-title";
 import { rgba } from "polished";
+import { SettingControl } from "./components/setting-control";
+import { ControlSettingContext } from "./contexts/control-setting";
 
 const App: React.FC = () => {
   const theme = useTheme();
   const chakra = useChakraContext();
   const [scale, setScale] = useState(1);
   const [aspect, setAspect] = useState<number>(1);
-  const [backgroundColor, setBackgroundColor] = useState(theme.theme === "dark" ? "gray.900" : "pink.subtle");
   const [layoutMode, setLayoutMode] = useState<LayoutMode>(LayoutMode.Standard);
+  const { bgHue, setBgHue } = useContext(ControlSettingContext);
   const rootBoxRef = useRef<HTMLDivElement>(null);
   const canvasPadding = 2;
 
@@ -55,15 +57,28 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const handleBackgroundChange = useCallback(() => {
+  const handleBackgroundChange = () => {
     var hue = Math.random() * 360;
+    setBgHue(hue);
+  };
+
+  const backgroundColor = useMemo(() => {
     if (theme.theme == 'dark') {
-      setBackgroundColor(`oklch(0.3 0.03 ${hue})`);
+      return `oklch(0.3 0.03 ${bgHue})`;
     }
     else {
-      setBackgroundColor(`oklch(0.96 0.02 ${hue})`);
+      return `oklch(0.96 0.02 ${bgHue})`;
     }
-  }, [theme.theme]);
+  }, [bgHue, theme.theme]);
+
+  const topbarBgColor = useMemo(() => {
+    if (theme.theme == 'dark') {
+      return `oklch(0.3 0.01 ${(bgHue + 10) % 360})`;
+    }
+    else {
+      return `oklch(0.96 0.05 ${(bgHue + 10) % 360})`;
+    }
+  }, [bgHue, theme.theme]);
 
   useEffect(() => {
     handleBackgroundChange();
@@ -107,44 +122,65 @@ const App: React.FC = () => {
       <Flex 
         align="center"
         justify="space-between" 
-        onClick={(e) => { e.stopPropagation(); }}
-        padding="0px 100px"
         width="100%"
+        gap={0}
         minHeight="80px"
-        backdropFilter="hue-rotate(10deg) saturate(160%)"
+        backgroundColor={topbarBgColor}
+        onClick={handleBackgroundChange}
       >
-        <AppTitle />
-        <Stack 
-          gap={0} 
-          align="center" 
+        <Stack
           direction="row" 
-          borderRadius="24px" 
-          overflow="clip" 
-          borderWidth={1}
-          boxShadow="2px 2px 12px rgba(0, 0, 0, 0.04)"
-          background={navbarBgColor}
-          backdropFilter={"blur(10px)"}
+          flex="0 1 auto"
+          minWidth="280px"
         >
-          <Group attached marginRight={4}>
-            <RegionSelector pl={6}/>
-            <RateSelector 
-              absolute={false}
-              direction="h"
-            />
-          </Group>
-          <Separator orientation="vertical" height="6" />
-          <Group attached>
-            <ResetControl />
-            <ShareControl pr={6} />
-          </Group>
+          <Box flex="0 1 auto" width="80px" minWidth="0px"/>
+          <AppTitle flex="0 0 auto"/>
+        </Stack>
+        <Box flex="0 1 auto" width="20px" minWidth="0px"/>
+        <Stack
+          direction="row" 
+          flex="0 2 auto"
+          onClick={(e) => { e.stopPropagation(); }}
+        >
+          <Stack 
+            gap={0} 
+            flex="0 0 auto"
+            align="center" 
+            direction="row" 
+            borderRadius="24px" 
+            overflow="clip" 
+            borderWidth={1}
+            boxShadow="2px 2px 12px rgba(0, 0, 0, 0.04)"
+            background={navbarBgColor}
+            backdropFilter="blur(10px)"
+          >
+            <Group attached marginRight={4}>
+              <RegionSelector pl={6}/>
+              <RateSelector 
+                absolute={false}
+                direction="h"
+              />
+            </Group>
+            <Separator orientation="vertical" height="6" />
+            <Group attached>
+              <ResetControl />
+              <ShareControl pr={6} />
+            </Group>
+          </Stack>
+          <Box flex="0 1 auto" width="80px" minWidth="0px"/>
         </Stack>
       </Flex>
       <MapCanvas
         scale={scale}
         canvasPadding={canvasPadding}
       />
-      {/* <ColorModeToggle />
-      <EmojiStickerControl/> */}
+      <Stack position="absolute" bottom={2} left={2} zIndex={100}>
+        <ColorModeToggle />
+        <SettingControl />
+      </Stack>
+      <Stack position="absolute" bottom={4} right={4} zIndex={100}>
+        <EmojiStickerControl/>
+      </Stack>
       <Footer absolute={true}/>
     </Flex>
   );
@@ -221,7 +257,6 @@ const App: React.FC = () => {
       width="100dvw"
       height="100dvh"
       backgroundColor={backgroundColor}
-      onClick={handleBackgroundChange}
     >
       {
         (() => {
@@ -239,7 +274,7 @@ const App: React.FC = () => {
           }
         })()
       }
-      {/* <Text position={'absolute'} top={0}>Layout: {layoutMode.toString()} ({(aspect*9).toFixed(2)}):9</Text> */}
+      <Text position={'absolute'} top={0}>Layout: {layoutMode.toString()} ({(aspect*9).toFixed(2)}):9</Text>
     </Box>
   );
 };

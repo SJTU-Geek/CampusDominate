@@ -12,11 +12,20 @@ import { LuSmilePlus, LuX } from "react-icons/lu";
 import { ControlSettingContext } from "@/contexts/control-setting";
 
 export const EmojiStickerControl = () => {
-  const { selectedEmoji, setSelectedEmoji } = useContext(ControlSettingContext);
+  const { selectedEmoji, setSelectedEmoji, bgHue } = useContext(ControlSettingContext);
   const { theme } = useTheme();
   const [open, setOpen] = useState(false);
 
   const closePicker = () => setOpen(false);
+
+  const bgColor = useMemo(() => {
+    if (theme == 'dark') {
+      return `oklch(0.4 0.08 ${(bgHue + 10) % 360})`;
+    }
+    else {
+      return `oklch(0.96 0.08 ${(bgHue + 10) % 360})`;
+    }
+  }, [bgHue, theme]);
 
   const pickerTheme = useMemo(
     () => (theme === "dark" ? EmojiPickerTheme.DARK : EmojiPickerTheme.LIGHT),
@@ -68,10 +77,11 @@ export const EmojiStickerControl = () => {
           <IconButton
             onClick={handleToggle}
             aria-label="pick-emoji"
-            color={"black"}
+            variant={'ghost'}
             borderRadius="24px"
-            border={"none"}
-            background={"linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)"}
+            background={bgColor}
+            backdropFilter="hue-rotate(10deg) saturate(240%)"
+            shadow={"xl"}
             width="auto"
             minWidth="48px"
             height="48px"

@@ -2,6 +2,8 @@ import { EmojiClickData } from "emoji-picker-react";
 import { createContext, PropsWithChildren, useCallback, useState } from "react";
 
 interface ControlSettingContextType {
+  bgHue: number, 
+  setBgHue: React.Dispatch<React.SetStateAction<number>>,
   level: number;
   setLevel: React.Dispatch<React.SetStateAction<number>>;
   region: string;
@@ -11,6 +13,8 @@ interface ControlSettingContextType {
 }
 
 export const ControlSettingContext = createContext<ControlSettingContextType>({
+  bgHue: 0,
+  setBgHue: () => {},
   level: 0,
   setLevel: () => {},
   region: "minhang",
@@ -25,6 +29,7 @@ export const ControlSettingContextProvider: React.FC<PropsWithChildren> = ({
   const [selectedEmoji, setSelectedEmoji] = useState<EmojiClickData | null>(null);
   const [region, setRegion] = useState<string>("minhang");
   const [level, setLevel] = useState(0);
+  const [bgHue, setBgHue] = useState<number>(Math.random() * 360);
 
   const value = {
     selectedEmoji,
@@ -33,6 +38,8 @@ export const ControlSettingContextProvider: React.FC<PropsWithChildren> = ({
     setRegion,
     level,
     setLevel,
+    bgHue,
+    setBgHue
   };
 
   return (

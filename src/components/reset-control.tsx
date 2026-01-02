@@ -5,11 +5,16 @@ import { DrawStateContext } from "@/contexts/draw-state";
 
 interface ResetControlProps {
   pl?: number;
+  rotated?: boolean;
 }
 
 export function ResetControl(props: ResetControlProps) {
   const dialog = useDialog();
   const { resetLevelMap, clearStickers } = useContext(DrawStateContext);
+  const rotatedProps = props.rotated ? {
+    transform: "rotate(90deg)",
+    transformOrigin: "center, center",
+  } : {};
   const onResetButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     resetLevelMap();
     clearStickers();
@@ -17,7 +22,7 @@ export function ResetControl(props: ResetControlProps) {
     e.stopPropagation();
   };
   return (
-    <Dialog.RootProvider value={dialog}>
+    <Dialog.RootProvider value={dialog} placement="center">
       <Dialog.Trigger asChild>
         <Button 
           onClick={(e) => {e.stopPropagation();}}
@@ -31,7 +36,7 @@ export function ResetControl(props: ResetControlProps) {
       <Portal>
         <Dialog.Backdrop/>
         <Dialog.Positioner>
-          <Dialog.Content>
+          <Dialog.Content {...rotatedProps}>
             <Dialog.Header>
               <Dialog.Title>请确认</Dialog.Title>
             </Dialog.Header>

@@ -1,15 +1,24 @@
 import { Button, CloseButton, Dialog, IconButton, Portal, useDialog } from "@chakra-ui/react";
 import { LuSettings } from "react-icons/lu";
 
-export function SettingControl() {
+interface SettingControlProps {
+  rotated?: boolean;
+}
+
+export function SettingControl(props: SettingControlProps) {
   const dialog = useDialog();
+  const rotatedProps = props.rotated ? {
+    transform: "rotate(90deg)",
+    transformOrigin: "center, center",
+  } : {};
+
   const onCloseButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     dialog.setOpen(false);
     e.stopPropagation();
   };
 
   return (
-    <Dialog.RootProvider value={dialog}>
+    <Dialog.RootProvider value={dialog} placement="center">
       <Dialog.Trigger asChild>
         <IconButton 
           onClick={(e) => {e.stopPropagation();}}
@@ -22,7 +31,7 @@ export function SettingControl() {
       <Portal>
         <Dialog.Backdrop/>
         <Dialog.Positioner>
-          <Dialog.Content>
+          <Dialog.Content {...rotatedProps}>
             <Dialog.Header>
               <Dialog.Title>应用设置</Dialog.Title>
             </Dialog.Header>

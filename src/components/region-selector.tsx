@@ -12,11 +12,10 @@ const regions = createListCollection({
 
 interface RegionSelectorProps {
   pl?: number;
+  rotated?: boolean;
 }
 
-export const RegionSelector = (props: RegionSelectorProps = {
-  pl: undefined
-}) => {
+export const RegionSelector = (props: RegionSelectorProps) => {
   const { region, setRegion } = useContext(ControlSettingContext);
   return (
     <Select.Root
@@ -24,6 +23,7 @@ export const RegionSelector = (props: RegionSelectorProps = {
       width="130px"
       value={[region]}
       onValueChange={(e) => setRegion(e.value[0])}
+      positioning={{ placement: props.rotated ? "left" : "top" }}
     >
       <Select.HiddenSelect />
       <Select.Control>
@@ -35,7 +35,7 @@ export const RegionSelector = (props: RegionSelectorProps = {
         </Select.IndicatorGroup>
       </Select.Control>
       <Portal>
-        <Select.Positioner >
+        <Select.Positioner>
           <Select.Content 
             transform="rotate(90deg)"
             transformOrigin="center center">

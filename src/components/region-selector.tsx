@@ -35,8 +35,10 @@ export const RegionSelector = (props: RegionSelectorProps = {
         </Select.IndicatorGroup>
       </Select.Control>
       <Portal>
-        <Select.Positioner>
-          <Select.Content>
+        <Select.Positioner >
+          <Select.Content 
+            transform="rotate(90deg)"
+            transformOrigin="center center">
             {regions.items.map((region) => (
               <Select.Item item={region} key={region.value}>
                 {region.label}

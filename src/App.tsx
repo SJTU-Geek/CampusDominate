@@ -31,13 +31,24 @@ const App: React.FC = () => {
     const viewport = window.visualViewport;
     const width = viewport ? viewport.width : window.innerWidth;
     const height = viewport ? viewport.height : window.innerHeight;
-    let widthScale = (width - 40) / (MAP.size[0] + canvasPadding * 2);
-    let heightScale = (height - 100) / (MAP.size[1] + canvasPadding * 2);
-    setScale(Math.min(widthScale, heightScale));
-
     // 计算宽高比并设置布局模式
     const aspect = width / height;
-    if (aspect < 12 / 9) {
+    let rotated = false;
+    if (aspect < 3.86 / 9) {
+      setLayoutMode(LayoutMode.RotateUltraWide);
+      rotated = true;
+    } else if (aspect < 5 / 9) {
+      setLayoutMode(LayoutMode.RotateWide);
+      rotated = true;
+    } else if (aspect < 6.75 / 9) {
+      setLayoutMode(LayoutMode.RotateStandard);
+      rotated = true;
+    } else if (aspect < 8 / 9) {
+      setLayoutMode(LayoutMode.RotateNarrow);
+      rotated = true;
+    } else if (aspect < 10 / 9) {
+      setLayoutMode(LayoutMode.Square);
+    } else if (aspect < 12 / 9){
       setLayoutMode(LayoutMode.Narrow);
     } else if (aspect < 16 / 9) {
       setLayoutMode(LayoutMode.Standard);
@@ -46,7 +57,18 @@ const App: React.FC = () => {
     } else {
       setLayoutMode(LayoutMode.UltraWide);
     }
-    setAspect(aspect);
+    setAspect(aspect);    
+    
+    let longerLength = width;
+    let shorterLength = height;
+    if (rotated) {
+      longerLength = height;
+      shorterLength = width;
+    }
+    let widthScale = (longerLength - 40) / (MAP.size[0] + canvasPadding * 2);
+    let heightScale = (shorterLength - 100) / (MAP.size[1] + canvasPadding * 2);
+    console.log(longerLength, shorterLength)
+    setScale(Math.min(widthScale, heightScale));
   };
 
   useEffect(() => {
@@ -242,20 +264,72 @@ const App: React.FC = () => {
       gap="2"
       direction="column"
       justify="space-between"
+      height="100%"
     >
-      <AppTitle />
+      <Flex 
+        align="center"
+        justify="space-between" 
+        width="100%"
+        gap={0}
+        minHeight="80px"
+        backgroundColor={topbarBgColor}
+        onClick={handleBackgroundChange}
+      >
+        <Stack
+          direction="row" 
+          flex="0 1 auto"
+          minWidth="280px"
+        >
+          <Box flex="0 1 auto" width="80px" minWidth="0px"/>
+          <AppTitle flex="0 0 auto"/>
+        </Stack>
+        <Box flex="0 1 auto" width="20px" minWidth="0px"/>
+        <Stack
+          direction="row" 
+          flex="0 2 auto"
+          onClick={(e) => { e.stopPropagation(); }}
+        >
+          <Stack 
+            gap={0} 
+            flex="0 0 auto"
+            align="center" 
+            direction="row" 
+            borderRadius="24px" 
+            overflow="clip" 
+            borderWidth={1}
+            boxShadow="2px 2px 12px rgba(0, 0, 0, 0.04)"
+            background={navbarBgColor}
+            backdropFilter="blur(10px)"
+          >
+            <RegionSelector pl={6}/>
+            <Group attached>
+              <ResetControl pl={4}/>
+              <ShareControl pr={4}/>
+            </Group>
+          </Stack>
+          <Box flex="0 1 auto" width="80px" minWidth="0px"/>
+        </Stack>
+      </Flex>
+      <RateSelector 
+        absolute={false}
+        wrap={true}
+        direction="h"
+        alignSelf="center"
+        margin="12px 0px"
+      />
       <MapCanvas
         scale={scale}
         canvasPadding={canvasPadding}
+        align="flex-start"
       />
-      <RateSelector />
-      <VStack position="absolute" left="2" bottom="2">
-        <ShareControl />
-        <EmojiStickerControl />
+      <Stack position="absolute" bottom={2} left={2} zIndex={100}>
         <ColorModeToggle />
-        <ResetControl />
-      </VStack>
-      <Footer />
+        <SettingControl />
+      </Stack>
+      <Stack position="absolute" bottom={4} right={4} zIndex={100}>
+        <EmojiStickerControl/>
+      </Stack>
+      <Footer absolute={true}/>
     </Flex>
   );
 
@@ -303,6 +377,137 @@ const App: React.FC = () => {
     </Flex>
   );
 
+  const RotateNarrowView = () => (
+    <Flex
+      gap="2"
+      direction="row-reverse"
+      justify="space-between"
+      align="center"
+      width="100%"
+      height="100%"
+    >
+      <Flex 
+        align="center"
+        justify="space-between" 
+        flexDirection="column"
+        height="100%"
+        gap={0}
+        width="80px"
+        backgroundColor={topbarBgColor}
+        onClick={handleBackgroundChange}
+      >
+        <Box flex="0 1 auto" width="20px" height="20px" minHeight="0px"/>
+        <Center flex="0 1 auto" minHeight="280px" width="100%" gap={0}>
+          <Box
+            transform="rotate(90deg)"
+            transformOrigin="center center"
+            textAlign="center"
+            whiteSpace="nowrap"
+          >
+            <AppTitle flex="0 0 auto"/>
+          </Box>
+        </Center>
+        <Box flex="0 1 auto" width="20px" height="20px" minHeight="0px"/>
+        <Center flex="0 1 auto" minHeight="304px" width="100%" gap={0}>
+          <Stack
+            direction="row" 
+            flex="0 2 auto"
+            onClick={(e) => { e.stopPropagation(); }}
+            transform="rotate(90deg)"
+            transformOrigin="center center"
+          >
+            <Stack 
+              gap={0} 
+              flex="0 0 auto"
+              align="center" 
+              direction="row" 
+              borderRadius="24px" 
+              overflow="clip" 
+              borderWidth={1}
+              boxShadow="2px 2px 12px rgba(0, 0, 0, 0.04)"
+              background={navbarBgColor}
+              backdropFilter="blur(10px)"
+            >
+              <RegionSelector pl={6}/>
+              <Group attached>
+                <ResetControl pl={4}/>
+                <ShareControl pr={4}/>
+              </Group>
+            </Stack>
+          </Stack>
+        </Center>
+        <Box flex="0 1 auto" width="20px" height="20px" minHeight="0px"/>
+      </Flex>
+      <Center 
+        width="60px" 
+        height={0} 
+        transform="rotate(90deg)"
+        transformOrigin="center center"
+      >
+        <RateSelector 
+          absolute={false}
+          wrap={true}
+          direction="h"
+          alignSelf="center"
+          margin="12px 0px"
+        />
+      </Center>
+      <MapCanvas
+        scale={scale}
+        canvasPadding={canvasPadding}
+        rotated={true}
+        align="flex-start"
+      />
+      <Stack position="absolute" bottom={2} left={2} zIndex={100}>
+        <ColorModeToggle />
+        <SettingControl />
+      </Stack>
+      <Stack position="absolute" bottom={4} right={4} zIndex={100}>
+        <EmojiStickerControl/>
+      </Stack>
+      <Footer absolute={true} rotated={true}/>
+    </Flex>
+  );
+
+  const RotateStandardView = () => (
+    <Flex
+      gap="2"
+      direction="column"
+      justify="space-between"
+    >
+      <MapCanvas
+        scale={scale}
+        canvasPadding={canvasPadding}
+      />
+    </Flex>
+  );
+
+  const RotateWideView = () => (
+    <Flex
+      gap="2"
+      direction="column"
+      justify="space-between"
+    >
+      <MapCanvas
+        scale={scale}
+        canvasPadding={canvasPadding}
+      />
+    </Flex>
+  );
+
+  const RotateUltraWideView = () => (
+    <Flex
+      gap="2"
+      direction="column"
+      justify="space-between"
+    >
+      <MapCanvas
+        scale={scale}
+        canvasPadding={canvasPadding}
+      />
+    </Flex>
+  );
+
   return (
     <Box
       ref={rootBoxRef}
@@ -315,12 +520,20 @@ const App: React.FC = () => {
       {
         (() => {
           switch (layoutMode) {
+            case LayoutMode.RotateNarrow:
+              return <RotateNarrowView />;
+            case LayoutMode.RotateStandard:
+              return <RotateStandardView />;
+            case LayoutMode.RotateWide:
+              return <RotateWideView />;
+            case LayoutMode.RotateUltraWide:
+              return <RotateUltraWideView />;
+            case LayoutMode.Square:
+              return <SquareView />;
             case LayoutMode.Narrow:
               return <NarrowView />;
             case LayoutMode.Standard:
               return <StandardView />;
-            case LayoutMode.Square:
-              return <SquareView />;
             case LayoutMode.Wide:
               return <WideView />;
             case LayoutMode.UltraWide:

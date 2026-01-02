@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import React, { useRef, useEffect, useCallback, useContext } from "react";
+import React, { useRef, useEffect, useCallback, useContext, useMemo } from "react";
 import { Center, Flex, useChakraContext } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
 import {
@@ -13,12 +13,14 @@ interface MapCanvasProps {
   scale: number;
   canvasPadding: number;
   align?: string;
+  rotated?: boolean; // for canvas, we use native support
 }
 
 const MapCanvas: React.FC<MapCanvasProps> = ({
   scale,
   canvasPadding,
   align,
+  rotated
 }) => {
   const { theme } = useTheme();
   const chakra = useChakraContext();
@@ -30,6 +32,15 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     addSticker,
   } = useContext(DrawStateContext);
   const { selectedEmoji, level } = useContext(ControlSettingContext);
+
+  const canvasSize = useMemo(() => {
+    if (rotated) {
+      return [MAP.size[1] * scale + canvasPadding * 2, MAP.size[0] * scale + canvasPadding * 2];
+    }
+    else {
+      return [MAP.size[0] * scale + canvasPadding * 2, MAP.size[1] * scale + canvasPadding * 2];
+    }
+  }, [MAP, scale, canvasPadding]);
 
   const draw = useCallback(() => {
     const canvas = canvasRef.current;
@@ -43,6 +54,8 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.scale(dpr, dpr);
     ctx.scale(scale, scale);
+    ctx.rotate(90 / 360 * (2 * Math.PI));
+    ctx.translate(0, -canvas.width / scale / dpr);
     ctx.textBaseline = "top";
 
     const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
@@ -183,12 +196,12 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     <Flex flex="1" direction="row" align={align ?? "center"} justifyContent="center">
       <canvas
         ref={canvasRef}
-        width={(MAP.size[0] * scale + canvasPadding * 2) * (window.devicePixelRatio || 1)}
-        height={(MAP.size[1] * scale + canvasPadding * 2) * (window.devicePixelRatio || 1)}
+        width={canvasSize[0] * (window.devicePixelRatio || 1)}
+        height={canvasSize[1] * (window.devicePixelRatio || 1)}
         style={{
           display: "block",
-          width: (MAP.size[0] * scale + canvasPadding * 2) + "px",
-          height: (MAP.size[1] * scale + canvasPadding * 2) + "px",
+          width: canvasSize[0] + "px",
+          height: canvasSize[1] + "px",
           backgroundColor: "inherit",
           border: "none",
         }}

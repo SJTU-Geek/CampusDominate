@@ -6,17 +6,26 @@ import EmojiPicker, {
   Theme as EmojiPickerTheme,
   EmojiStyle,
 } from "emoji-picker-react";
-import { Box, Button, IconButton, Popover, Portal, Span, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, FlexProps, IconButton, Popover, Portal, Span, Stack, Text } from "@chakra-ui/react";
 import { useTheme } from "next-themes";
 import { LuSmilePlus, LuX } from "react-icons/lu";
 import { ControlSettingContext } from "@/contexts/control-setting";
 
-export const EmojiStickerControl = () => {
+interface EmojiStickerControlProps {
+  rotated?: boolean;
+}
+
+export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
   const { selectedEmoji, setSelectedEmoji, bgHue } = useContext(ControlSettingContext);
   const { theme } = useTheme();
   const [open, setOpen] = useState(false);
 
   const closePicker = () => setOpen(false);
+
+  const rotatedProps = props.rotated ? {
+    transform: "rotate(90deg)",
+    transformOrigin: "center, center",
+  } : {};
 
   const bgColor = useMemo(() => {
     if (theme == 'dark') {
@@ -71,9 +80,20 @@ export const EmojiStickerControl = () => {
   };
 
   return (
-    <Popover.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+    <Popover.Root 
+      open={open} 
+      onOpenChange={(e) => setOpen(e.open)}
+      positioning={{ placement: props.rotated ? "left" : "top" }}
+    >
       <Popover.Trigger asChild>
-        <Box position="relative">
+        <Flex 
+          position="relative" 
+          width="48px" 
+          height="48px"
+          align="center"
+          justify="flex-end"
+          {...rotatedProps}
+        >
           <IconButton
             onClick={handleToggle}
             aria-label="pick-emoji"
@@ -97,32 +117,39 @@ export const EmojiStickerControl = () => {
               }
             </Span>
           </IconButton>
-        </Box>
+        </Flex>
       </Popover.Trigger>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content width="auto">
+          <Popover.Content 
+            width="auto" 
+            borderWidth="1px"
+            boxShadow="lg"
+          >
             <Popover.Arrow />
-            <Popover.Body padding={0} background="transparent">
+            <Popover.Body 
+              padding={0} 
+              background="transparent"
+              {...rotatedProps}
+            >
               <Box
                 borderRadius="lg"
-                boxShadow="lg"
-                borderWidth="1px"
                 backgroundColor={theme === "dark" ? "gray.800" : "white"}
                 color={theme === "dark" ? "gray.100" : "gray.800"}
                 p="2"
                 width="320px"
+                height="320px"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Box borderRadius="md" overflow="hidden">
                   <EmojiPicker
                     onEmojiClick={handleEmojiClick}
-                    lazyLoadEmojis
+                    lazyLoadEmojis={true}
                     emojiStyle={EmojiStyle.GOOGLE}
                     theme={pickerTheme}
                     previewConfig={{ showPreview: false }}
                     width={300}
-                    height={300}
+                    height={230}
                     style={pickerStyle}
                     searchDisabled
                   />

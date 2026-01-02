@@ -67,7 +67,6 @@ const App: React.FC = () => {
     }
     let widthScale = (longerLength - 40) / (MAP.size[0] + canvasPadding * 2);
     let heightScale = (shorterLength - 100) / (MAP.size[1] + canvasPadding * 2);
-    console.log(longerLength, shorterLength)
     setScale(Math.min(widthScale, heightScale));
   };
 
@@ -458,12 +457,12 @@ const App: React.FC = () => {
         rotated={true}
         align="flex-start"
       />
-      <Stack position="absolute" bottom={2} left={2} zIndex={100}>
+      <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
         <ColorModeToggle />
         <SettingControl />
       </Stack>
-      <Stack position="absolute" bottom={4} right={4} zIndex={100}>
-        <EmojiStickerControl/>
+      <Stack position="absolute" bottom={4} left={4} zIndex={100}>
+        <EmojiStickerControl rotated={true}/>
       </Stack>
       <Footer absolute={true} rotated={true}/>
     </Flex>

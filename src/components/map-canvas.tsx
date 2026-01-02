@@ -54,8 +54,10 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.scale(dpr, dpr);
     ctx.scale(scale, scale);
-    ctx.rotate(90 / 360 * (2 * Math.PI));
-    ctx.translate(0, -canvas.width / scale / dpr);
+    if (rotated) {
+      ctx.rotate(90 / 360 * (2 * Math.PI));
+      ctx.translate(0, -canvas.width / scale / dpr);
+    }
     ctx.textBaseline = "top";
 
     const mapAreas = MAP.layers.find((layer) => layer.name === "area")?.layers!;
@@ -151,8 +153,13 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       const y = (e.clientY - rect.top) * dpr;
 
       if (selectedEmoji) {
-        const mapX = x / (dpr * scale) - canvasPadding;
-        const mapY = y / (dpr * scale) - canvasPadding;
+        let mapX = x / (dpr * scale) - canvasPadding;
+        let mapY = y / (dpr * scale) - canvasPadding;
+        if (rotated) {
+          let t = mapX;
+          mapX = mapY;
+          mapY = MAP.size[1] - t;
+        }
         addSticker(selectedEmoji.emoji, mapX, mapY);
         e.stopPropagation();
         return;

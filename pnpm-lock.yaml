@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  emoji-picker-react:
+    hash: f7a90f165a569e77b2d4d81c72c3d5599d37a2f20f88901bdc1477079dd0e259
+    path: patches/emoji-picker-react.patch
+
 importers:
 
   .:
@@ -25,7 +30,7 @@ importers:
         version: 4.0.2
       emoji-picker-react:
         specifier: ^4.16.1
-        version: 4.16.1(react@19.2.0)
+        version: 4.16.1(patch_hash=f7a90f165a569e77b2d4d81c72c3d5599d37a2f20f88901bdc1477079dd0e259)(react@19.2.0)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -2210,7 +2215,7 @@ snapshots:
 
   electron-to-chromium@1.5.230: {}
 
-  emoji-picker-react@4.16.1(react@19.2.0):
+  emoji-picker-react@4.16.1(patch_hash=f7a90f165a569e77b2d4d81c72c3d5599d37a2f20f88901bdc1477079dd0e259)(react@19.2.0):
     dependencies:
       flairup: 1.0.0
       react: 19.2.0

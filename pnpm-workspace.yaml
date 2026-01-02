@@ -1,0 +1,2 @@
+patchedDependencies:
+  emoji-picker-react: patches/emoji-picker-react.patch

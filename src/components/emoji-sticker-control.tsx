@@ -24,7 +24,7 @@ export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
 
   const rotatedProps = props.rotated ? {
     transform: "rotate(90deg)",
-    transformOrigin: "center, center",
+    transformOrigin: "center center",
   } : {};
 
   const bgColor = useMemo(() => {

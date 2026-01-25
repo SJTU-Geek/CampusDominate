@@ -13,7 +13,7 @@ export function ResetControl(props: ResetControlProps) {
   const { resetLevelMap, clearStickers } = useContext(DrawStateContext);
   const rotatedProps = props.rotated ? {
     transform: "rotate(90deg)",
-    transformOrigin: "center, center",
+    transformOrigin: "center center",
   } : {};
   const onResetButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     resetLevelMap();

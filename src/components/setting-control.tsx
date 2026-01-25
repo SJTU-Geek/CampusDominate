@@ -9,7 +9,7 @@ export function SettingControl(props: SettingControlProps) {
   const dialog = useDialog();
   const rotatedProps = props.rotated ? {
     transform: "rotate(90deg)",
-    transformOrigin: "center, center",
+    transformOrigin: "center center",
   } : {};
 
   const onCloseButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {

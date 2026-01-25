@@ -24,6 +24,7 @@ export function SettingControl(props: SettingControlProps) {
           onClick={(e) => {e.stopPropagation();}}
           variant="ghost"
           padding="4px 12px"
+          {...rotatedProps}
         >
           <LuSettings/>
         </IconButton>

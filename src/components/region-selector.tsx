@@ -17,6 +17,10 @@ interface RegionSelectorProps {
 
 export const RegionSelector = (props: RegionSelectorProps) => {
   const { region, setRegion } = useContext(ControlSettingContext);
+  const rotatedProps = props.rotated ? {
+    transform: "rotate(90deg)",
+    transformOrigin: "center center",
+  } : {};
   return (
     <Select.Root
       collection={regions}
@@ -37,8 +41,7 @@ export const RegionSelector = (props: RegionSelectorProps) => {
       <Portal>
         <Select.Positioner>
           <Select.Content 
-            transform="rotate(90deg)"
-            transformOrigin="center center">
+            {...rotatedProps}>
             {regions.items.map((region) => (
               <Select.Item item={region} key={region.value}>
                 {region.label}

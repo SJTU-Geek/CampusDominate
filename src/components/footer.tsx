@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = (props: FooterProps) => {
     alignItems: "center",
     justifyContent: "center", 
     transform: "rotate(90deg)",
-    transformOrigin: "center, center",
+    transformOrigin: "center center",
   } : {};
   return (
     <Box 

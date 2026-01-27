@@ -54,3 +54,43 @@ export const RegionSelector = (props: RegionSelectorProps) => {
     </Select.Root>
   );
 }
+
+export const RegionSelectorWide = (props: RegionSelectorProps) => {
+  const { region, setRegion } = useContext(ControlSettingContext);
+  const rotatedProps = props.rotated ? {
+    transform: "rotate(90deg)",
+    transformOrigin: "center center",
+  } : {};
+  return (
+    <Select.Root
+      collection={regions}
+      width="130px"
+      value={[region]}
+      onValueChange={(e) => setRegion(e.value[0])}
+      positioning={{ placement: props.rotated ? "left" : "top" }}
+    >
+      <Select.HiddenSelect />
+      <Select.Control>
+        <Select.Trigger paddingLeft={props.pl} fontSize={16} borderWidth="0">
+          <Select.ValueText placeholder="请选择校区" />
+        </Select.Trigger>
+        <Select.IndicatorGroup>
+          <Select.Indicator />
+        </Select.IndicatorGroup>
+      </Select.Control>
+      <Portal>
+        <Select.Positioner>
+          <Select.Content 
+            {...rotatedProps}>
+            {regions.items.map((region) => (
+              <Select.Item item={region} key={region.value}>
+                {region.label}
+                <Select.ItemIndicator />
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select.Positioner>
+      </Portal>
+    </Select.Root>
+  );
+}

@@ -10,9 +10,10 @@ import { DrawStateContext } from "@/contexts/draw-state";
 
 interface ShareControlProps {
   pr?: number;
+  rotated?: boolean;
 }
 
-export const ShareControl = (props: ShareControlProps) => {
+function useShareControl(){
   const { areaLevelMap, stickers: emojiStickers } = useContext(DrawStateContext);
   const { theme } = useTheme();
   const chakra = useChakraContext();
@@ -74,7 +75,11 @@ export const ShareControl = (props: ShareControlProps) => {
       console.error("Screenshot failed:", error);
     }
   }, [areaLevelMap, emojiStickers, theme]);
+  return {handleScreenshot}
+}
 
+export const ShareControl = (props: ShareControlProps) => {
+  const {handleScreenshot}=useShareControl()
   return (
     <Button 
       onClick={handleScreenshot} 
@@ -83,6 +88,25 @@ export const ShareControl = (props: ShareControlProps) => {
       paddingRight={props.pr}
     >
       <LuShare2 /> 分享
+    </Button>
+  );
+};
+
+export const ShareControlWide = (props: ShareControlProps) => {
+  const {handleScreenshot}=useShareControl()
+   const rotatedProps = props.rotated ? {
+    transform: "rotate(90deg)",
+    transformOrigin: "center center",
+  } : {};
+  return (
+    <Button 
+      onClick={handleScreenshot} 
+      variant="ghost"
+      padding="4px 12px"
+      paddingRight={props.pr}
+      {...rotatedProps}
+    >
+      <LuShare2 />
     </Button>
   );
 };

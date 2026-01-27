@@ -6,9 +6,9 @@ import { MAP } from "@/models/map-data";
 import RateSelector from "@/components/rate-selector";
 import { ColorModeToggle } from "@/components/color-mode-toggle";
 import { useTheme } from "next-themes";
-import { ShareControl } from "@/components/share-control";
+import { ShareControl,ShareControlWide } from "@/components/share-control";
 import "@/styles/global.css";
-import { ResetControl } from "@/components/reset-control";
+import { ResetControl, ResetControlWide } from "@/components/reset-control";
 import { EmojiStickerControl } from "@/components/emoji-sticker-control";
 import { LayoutMode } from "./enums/layout-mode";
 import { RegionSelector } from "./components/region-selector";
@@ -712,10 +712,6 @@ const App: React.FC = () => {
                 direction="h"
                 alignSelf="center"
               />
-              <Group attached>
-                <ResetControl pl={4} rotated={true}/>
-                <ShareControl pr={4}/>
-              </Group>
             </Stack>
           </Stack>
         </Center>
@@ -728,6 +724,8 @@ const App: React.FC = () => {
         align="flex-start"
       />
       <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
+        <ResetControlWide rotated={true}/>
+        <ShareControlWide rotated={true}/>
         <ColorModeToggle />
         <SettingControl rotated={true}/>
       </Stack>

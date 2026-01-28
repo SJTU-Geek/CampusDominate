@@ -557,8 +557,8 @@ const App: React.FC = () => {
         align="flex-start"
       />
       <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
-        <ColorModeToggle />
-        <SettingControl rotated={true} />
+        <ColorModeToggle rotated={true}/>
+        <SettingControl rotated={true}/>
       </Stack>
       <Stack position="absolute" bottom={4} left={4} zIndex={100}>
         <EmojiStickerControl rotated={true} />
@@ -641,8 +641,8 @@ const App: React.FC = () => {
         align="flex-start"
       />
       <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
-        <ColorModeToggle />
-        <SettingControl rotated={true} />
+        <ColorModeToggle rotated={true}/>
+        <SettingControl rotated={true}/>
       </Stack>
       <Stack position="absolute" bottom={4} left={4} zIndex={100}>
         <EmojiStickerControl rotated={true} />
@@ -724,6 +724,16 @@ const App: React.FC = () => {
           margin="12px 0px"
         />
       </Flex>
+      <MapCanvas
+        scale={scale}
+        canvasPadding={canvasPadding}
+        rotated={true}
+        align="flex-start"
+      />
+      <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
+        <ColorModeToggle rotated={true}/>
+        <SettingControl rotated={true}/>
+      </Stack>
       <Stack position="absolute" bottom={4} left={4} zIndex={100}>
         <EmojiStickerControl rotated={true} />
       </Stack>
@@ -805,8 +815,8 @@ const App: React.FC = () => {
         align="flex-start"
       />
       <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
-        <ColorModeToggle />
-        <SettingControl rotated={true} />
+        <ColorModeToggle rotated={true}/>
+        <SettingControl rotated={true}/>
       </Stack>
       <Stack position="absolute" bottom={4} left={4} zIndex={100}>
         <EmojiStickerControl rotated={true} />

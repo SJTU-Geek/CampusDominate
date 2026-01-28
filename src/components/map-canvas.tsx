@@ -211,6 +211,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
           height: canvasSize[1] + "px",
           backgroundColor: "inherit",
           border: "none",
+          zIndex:1
         }}
         onClick={handleCanvasClick}
       />

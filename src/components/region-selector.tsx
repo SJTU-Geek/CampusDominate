@@ -2,6 +2,7 @@ import { REGIONS } from "@/constants/regions";
 import { ControlSettingContext } from "@/contexts/control-setting";
 import { Portal, Select, createListCollection } from "@chakra-ui/react";
 import { useContext, useState } from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const regions = createListCollection({
   items: REGIONS.map(r => ({
@@ -64,19 +65,24 @@ export const RegionSelectorWide = (props: RegionSelectorProps) => {
   return (
     <Select.Root
       collection={regions}
-      width="130px"
       value={[region]}
       onValueChange={(e) => setRegion(e.value[0])}
-      positioning={{ placement: props.rotated ? "left" : "top" }}
+      positioning={{ 
+        placement: props.rotated ? "bottom" : "right", 
+        offset:{mainAxis:30}
+      }}
     >
       <Select.HiddenSelect />
       <Select.Control>
-        <Select.Trigger paddingLeft={props.pl} fontSize={16} borderWidth="0">
-          <Select.ValueText placeholder="请选择校区" />
+        <Select.Trigger 
+        paddingLeft={props.pl} 
+        fontSize={16} 
+        borderWidth="0"
+        padding={"4px 12px"}
+        {...rotatedProps}
+        >
+        <FaMapMarkerAlt size={"20px"}/>
         </Select.Trigger>
-        <Select.IndicatorGroup>
-          <Select.Indicator />
-        </Select.IndicatorGroup>
       </Select.Control>
       <Portal>
         <Select.Positioner>

@@ -11,7 +11,7 @@ import "@/styles/global.css";
 import { ResetControl, ResetControlWide } from "@/components/reset-control";
 import { EmojiStickerControl } from "@/components/emoji-sticker-control";
 import { LayoutMode } from "./enums/layout-mode";
-import { RegionSelector } from "./components/region-selector";
+import { RegionSelector, RegionSelectorWide } from "./components/region-selector";
 import AppTitle from "./components/app-title";
 import { rgba } from "polished";
 import { SettingControl } from "./components/setting-control";
@@ -705,7 +705,6 @@ const App: React.FC = () => {
               background={navbarBgColor}
               backdropFilter="blur(10px)"
             >
-              <RegionSelector pl={6} rotated={true}/>
               <RateSelector 
                 absolute={false}
                 wrap={false}
@@ -724,6 +723,7 @@ const App: React.FC = () => {
         align="flex-start"
       />
       <Stack position="absolute" top={2} left={2} direction="row-reverse" zIndex={100}>
+        <RegionSelectorWide rotated={true}/>
         <ResetControlWide rotated={true}/>
         <ShareControlWide rotated={true}/>
         <ColorModeToggle />

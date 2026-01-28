@@ -1,6 +1,6 @@
 import { REGIONS } from "@/constants/regions";
 import { ControlSettingContext } from "@/contexts/control-setting";
-import { Portal, Select, createListCollection,useSelectContext } from "@chakra-ui/react";
+import { Portal, Select, createListCollection, useSelectContext } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { IconButton } from "@chakra-ui/react";
@@ -59,10 +59,10 @@ export const RegionSelector = (props: RegionSelectorProps) => {
 
 export const RegionSelectorWide = (props: RegionSelectorProps) => {
   const SelectTrigger = () => {
-    const select =useSelectContext()
+    const select = useSelectContext()
     return (
       <IconButton
-      {...select.getTriggerProps()}
+        {...select.getTriggerProps()}
         onClick={(e) => {
           e.stopPropagation();
           select.getTriggerProps().onClick?.(e)
@@ -86,19 +86,19 @@ export const RegionSelectorWide = (props: RegionSelectorProps) => {
       collection={regions}
       value={[region]}
       onValueChange={(e) => setRegion(e.value[0])}
-      positioning={{ 
-        placement: props.rotated ? "bottom" : "right", 
-        offset:{mainAxis: props.rotated?40:10}
+      positioning={{
+        placement: props.rotated ? "bottom" : "right",
+        offset: { mainAxis: props.rotated ? 40 : 10 }
       }}
       placeItems={"center"}
     >
       <Select.HiddenSelect />
       <Select.Control>
-        <SelectTrigger/>
+        <SelectTrigger />
       </Select.Control>
       <Portal>
         <Select.Positioner>
-          <Select.Content 
+          <Select.Content
             {...rotatedProps}>
             {regions.items.map((region) => (
               <Select.Item item={region} key={region.value}>

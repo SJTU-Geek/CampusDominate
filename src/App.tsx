@@ -698,11 +698,11 @@ const App: React.FC = () => {
           zIndex={100}
           alignItems={"center"}
         >
-          <RegionSelectorWide rotated={true}/>
+          <RegionSelectorWide rotated={true} />
           <ResetControlWide rotated={true} />
-          <ShareControlWide rotated={true}/>
+          <ShareControlWide rotated={true} />
           <ColorModeToggle />
-          <SettingControl rotated={true}/>
+          <SettingControl rotated={true} />
         </Stack>
       </Flex>
       <Flex

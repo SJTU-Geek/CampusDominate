@@ -13,7 +13,7 @@ interface ShareControlProps {
   rotated?: boolean;
 }
 
-function useShareControl(){
+function useShareControl() {
   const { areaLevelMap, stickers: emojiStickers } = useContext(DrawStateContext);
   const { theme } = useTheme();
   const chakra = useChakraContext();
@@ -21,12 +21,12 @@ function useShareControl(){
   function preloadColors() {
     let dic: Record<string, string> = {};
     LEVELS.forEach(level => {
-      var colorToken = "colors." + 
-        level.color + 
-        "." + 
+      var colorToken = "colors." +
+        level.color +
+        "." +
         (
-          theme === "dark" ? 
-            level.levelDark : 
+          theme === "dark" ?
+            level.levelDark :
             level.levelLight
         );
       dic[colorToken] = chakra.tokens.getByName(colorToken)?.value;
@@ -75,14 +75,14 @@ function useShareControl(){
       console.error("Screenshot failed:", error);
     }
   }, [areaLevelMap, emojiStickers, theme]);
-  return {handleScreenshot}
+  return { handleScreenshot }
 }
 
 export const ShareControl = (props: ShareControlProps) => {
-  const {handleScreenshot}=useShareControl()
+  const { handleScreenshot } = useShareControl()
   return (
-    <Button 
-      onClick={handleScreenshot} 
+    <Button
+      onClick={ handleScreenshot }
       variant="ghost"
       padding="4px 12px"
       paddingRight={props.pr}
@@ -93,14 +93,14 @@ export const ShareControl = (props: ShareControlProps) => {
 };
 
 export const ShareControlWide = (props: ShareControlProps) => {
-  const {handleScreenshot}=useShareControl()
-   const rotatedProps = props.rotated ? {
+  const { handleScreenshot } = useShareControl()
+  const rotatedProps = props.rotated ? {
     transform: "rotate(90deg)",
     transformOrigin: "center center",
   } : {};
   return (
-    <Button 
-      onClick={handleScreenshot} 
+    <Button
+      onClick={ handleScreenshot }
       variant="ghost"
       padding="4px 12px"
       paddingRight={props.pr}

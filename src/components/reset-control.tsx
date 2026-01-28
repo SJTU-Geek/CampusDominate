@@ -9,7 +9,7 @@ interface ResetControlProps {
 }
 
 export function ResetControl(props: ResetControlProps) {
- const dialog = useDialog();
+  const dialog = useDialog();
   const rotatedProps = props.rotated ? {
     transform: "rotate(90deg)",
     transformOrigin: "center center",
@@ -17,16 +17,16 @@ export function ResetControl(props: ResetControlProps) {
   return (
     <Dialog.RootProvider value={dialog} placement="center">
       <Dialog.Trigger asChild>
-        <Button 
-          onClick={(e) => {e.stopPropagation();}}
+        <Button
+          onClick={(e) => { e.stopPropagation(); }}
           variant="ghost"
           padding="4px 12px"
           paddingLeft={props.pl}
         >
-          <LuRefreshCw/> 重置
+          <LuRefreshCw /> 重置
         </Button>
       </Dialog.Trigger>
-      <ResetDialogContent dialog={dialog} rotated={props.rotated}/>
+      <ResetDialogContent dialog={dialog} rotated={props.rotated} />
     </Dialog.RootProvider>
   );
 }
@@ -40,24 +40,24 @@ export function ResetControlWide(props: ResetControlProps) {
   return (
     <Dialog.RootProvider value={dialog} placement="center">
       <Dialog.Trigger asChild>
-        <Button 
-          onClick={(e) => {e.stopPropagation();}}
+        <Button
+          onClick={(e) => { e.stopPropagation(); }}
           variant="ghost"
           padding="4px 12px"
           paddingLeft={props.pl}
           {...rotatedProps}
         >
-          <LuRefreshCw/>
+          <LuRefreshCw />
         </Button>
       </Dialog.Trigger>
-      <ResetDialogContent rotated={props.rotated} dialog={dialog}/>
+      <ResetDialogContent rotated={props.rotated} dialog={dialog} />
     </Dialog.RootProvider>
   );
 }
 
 interface ResetDialogContentProps {
-  dialog:UseDialogReturn
-  rotated?:boolean;
+  dialog: UseDialogReturn
+  rotated?: boolean;
 }
 
 function ResetDialogContent(props: ResetDialogContentProps) {
@@ -74,7 +74,7 @@ function ResetDialogContent(props: ResetDialogContentProps) {
   };
   return (
     <Portal>
-      <Dialog.Backdrop/>
+      <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content {...rotatedProps}>
           <Dialog.Header>

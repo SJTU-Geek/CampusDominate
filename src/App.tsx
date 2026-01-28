@@ -338,67 +338,63 @@ const App: React.FC = () => {
       gap="2"
       direction="column"
       justify="space-between"
+      align="center"
+      width="100%"
       height="100%"
     >
-      <Flex
-        align="center"
-        justify="space-between"
-        width="100%"
-        gap={0}
-        minHeight="80px"
-        backgroundColor={topbarBgColor}
-        onClick={handleBackgroundChange}
-      >
-        <Stack
-          direction="row"
-          flex="0 1 auto"
-          minWidth="280px"
-        >
-          <Box flex="0 1 auto" width="80px" minWidth="0px" />
-          <AppTitle flex="0 0 auto" />
-        </Stack>
-        <Box flex="0 1 auto" width="20px" minWidth="0px" />
-        <Stack
-          direction="row"
-          flex="0 2 auto"
-          onClick={(e) => { e.stopPropagation(); }}
-        >
-          <Stack
-            gap={0}
-            flex="0 0 auto"
-            align="center"
-            direction="row"
-            borderRadius="24px"
-            overflow="clip"
-            borderWidth={1}
-            boxShadow="2px 2px 12px rgba(0, 0, 0, 0.04)"
-            background={navbarBgColor}
-            backdropFilter="blur(10px)"
-          >
-            <Group attached marginRight={4}>
-              <RegionSelector pl={6} />
-              <RateSelector
-                absolute={false}
-                direction="h"
-              />
-            </Group>
-            <Separator orientation="vertical" height="6" />
-            <Group attached>
-              <ResetControl />
-              <ShareControl pr={6} />
-            </Group>
-          </Stack>
-          <Box flex="0 1 auto" width="80px" minWidth="0px" />
-        </Stack>
-      </Flex>
       <MapCanvas
         scale={scale}
         canvasPadding={canvasPadding}
+        align="center"
+
       />
-      <Stack position="absolute" bottom={2} left={2} zIndex={100}>
-        <ColorModeToggle />
-        <SettingControl />
-      </Stack>
+      <Flex
+        top={0}
+        left={0}
+        height={"100%"}
+        position={"absolute"}
+        backgroundColor={topbarBgColor}
+        onClick={handleBackgroundChange}
+        direction="column"
+        justifyContent="space-between"
+        alignItems={"center"}
+        py={2}
+      >
+        <Box
+        >
+          <AppTitle
+            flex="0 0 auto"
+            textAlign={"center"}
+            writingMode={"vertical-lr"}
+            alignSelf="center"
+          />
+        </Box>
+        <Stack
+          zIndex={100}
+          alignItems={"center"}
+        >
+          <RegionSelectorWide />
+          <ResetControlWide />
+          <ShareControlWide />
+          <ColorModeToggle />
+          <SettingControl />
+        </Stack>
+      </Flex>
+      <Flex
+        position="absolute"
+        right={"16px"}
+        top={"50%"}
+        zIndex={100}
+        transform="translateY(-50%)"
+      >
+        <RateSelector
+          absolute={false}
+          wrap={true}
+          direction="v"
+          alignSelf="center"
+          margin="12px 0px"
+        />
+      </Flex>
       <Stack position="absolute" bottom={4} right={4} zIndex={100}>
         <EmojiStickerControl />
       </Stack>
@@ -670,37 +666,55 @@ const App: React.FC = () => {
         rotated={true}
         align="flex-start"
       />
-      <Stack
-        position="absolute"
-        top={2}
-        left={2}
+      <Flex
+        top={0}
+        left={0}
+        width={"100%"}
+        position={"absolute"}
+        backgroundColor={topbarBgColor}
+        onClick={handleBackgroundChange}
         direction="row-reverse"
-        zIndex={100}
-        alignItems="center"
+        justifyContent="space-between"
+        px={2}
       >
-        <AppTitle
-          flex="0 0 auto"
-          textAlign={"center"}
-          onClick={handleBackgroundChange}
-        />
-        <RegionSelectorWide rotated={true} />
-        <ResetControlWide rotated={true} />
-        <ShareControlWide rotated={true} />
-        <ColorModeToggle />
-        <SettingControl rotated={true} />
-      </Stack>
-      <Stack
+        <Box
+          width={"261.14px"}
+          height={"65px"}
+        >
+          <Box
+            transform={"rotate(90deg)"}
+            transformOrigin={"top 32.5"}
+          >
+            <AppTitle
+              flex="0 0 auto"
+              textAlign={"center"}
+              writingMode={"vertical-lr"}
+              alignSelf="center"
+            />
+          </Box>
+        </Box>
+        <Stack
+          direction={"row-reverse"}
+          zIndex={100}
+          alignItems={"center"}
+        >
+          <RegionSelectorWide rotated={true}/>
+          <ResetControlWide rotated={true} />
+          <ShareControlWide rotated={true}/>
+          <ColorModeToggle />
+          <SettingControl rotated={true}/>
+        </Stack>
+      </Flex>
+      <Flex
         position="absolute"
-        bottom={4}
+        bottom={"72px"}
         left={"50%"}
         direction="row-reverse"
         zIndex={100}
-        transform="translateX(-50%) translateY(40%) rotate(90deg)"
+        transform="translateX(-50%) translateY(50%) rotate(90deg)"
         transformOrigin="center center"
-        borderRadius="24px"
         overflow="clip"
         height={"320px"}
-        backgroundColor={topbarBgColor}
       >
         <RateSelector
           absolute={false}
@@ -709,7 +723,7 @@ const App: React.FC = () => {
           alignSelf="center"
           margin="12px 0px"
         />
-      </Stack>
+      </Flex>
       <Stack position="absolute" bottom={4} left={4} zIndex={100}>
         <EmojiStickerControl rotated={true} />
       </Stack>

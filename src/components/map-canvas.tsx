@@ -8,6 +8,7 @@ import {
 import { LEVELS } from "@/constants/rates";
 import { DrawStateContext } from "@/contexts/draw-state";
 import { ControlSettingContext } from "@/contexts/control-setting";
+import { EmojiSticker } from "@/models/emoji";
 
 interface MapCanvasProps {
   scale: number;
@@ -125,18 +126,33 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         ctx.fillText(text, x, y);
       }
     }
+    function getEmojiImage(emoji: EmojiSticker) {
+      const url = emoji.url;
+      const img = new Image();
+      // 关键：跨域配置（CDN 图片需要允许跨域，否则画布会污染）
+      img.crossOrigin = 'anonymous';
+      // 图片加载完成回调
+      // 加载失败回调
+      // 设置图片 URL（触发加载）
+      img.src = url;
+      return img;
+    }
     if (stickers.length) {
       ctx.save();
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.font =
-        "32px \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Noto Color Emoji\", sans-serif";
       for (const sticker of stickers) {
+        const emojiSize = 32;
+        const emoji = getEmojiImage(sticker)
         const x = sticker.x + canvasPadding;
         const y = sticker.y + canvasPadding;
-        ctx.fillText(sticker.emoji, x, y);
+        ctx.drawImage(
+          emoji,
+          x - emojiSize / 2, // 向左偏移一半宽度
+          y - emojiSize / 2, // 向上偏移一半高度
+          emojiSize, // 绘制宽度
+          emojiSize  // 绘制高度
+        );
       }
-      ctx.restore();
+    ctx.restore();
     }
   }, [areaLevelMap, canvasPadding, chakra, scale, stickers, theme]);
 
@@ -160,7 +176,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
           mapX = mapY;
           mapY = MAP.size[1] - t;
         }
-        addSticker(selectedEmoji.emoji, mapX, mapY);
+        addSticker(selectedEmoji.emoji, selectedEmoji.imageUrl, mapX, mapY);
         e.stopPropagation();
         return;
       }

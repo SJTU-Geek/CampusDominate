@@ -9,6 +9,7 @@ import { LEVELS } from "@/constants/rates";
 interface DrawStateContextType {
   stickers: EmojiSticker[];
   addSticker: (emoji: string, x: number, y: number) => void;
+  removeSticker: (id: string) => void;
   clearStickers: () => void;  
   areaLevelMap: Record<string, number>;
   setAreaLevelMap: (value: SetState<Record<string, number>>) => void;
@@ -18,6 +19,7 @@ interface DrawStateContextType {
 export const DrawStateContext = createContext<DrawStateContextType>({
   stickers: [],
   addSticker: () => {},
+  removeSticker: () => {},
   clearStickers: () => {},  
   areaLevelMap: {},
   setAreaLevelMap: () => {},
@@ -56,6 +58,15 @@ export const DrawStateContextProvider: React.FC<PropsWithChildren> = ({
     [setStickers]
   );
 
+  const removeSticker = useCallback(
+    (stickerId: string) => {
+      setStickers((prev = []) => {
+        return prev.filter((sticker) => sticker.id !== stickerId)
+      });
+    },
+    [setStickers]
+  );
+
   const clearStickers = useCallback(() => {
     setStickers([]);
     setSelectedEmoji(null);
@@ -68,6 +79,7 @@ export const DrawStateContextProvider: React.FC<PropsWithChildren> = ({
   const value = {
     stickers,
     addSticker,
+    removeSticker,
     clearStickers,    
     areaLevelMap,
     setAreaLevelMap,

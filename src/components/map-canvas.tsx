@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import React, { useRef, useEffect, useCallback, useContext, useMemo } from "react";
+import React, { useRef, useEffect, useCallback, useContext, useMemo, useState } from "react";
 import { Center, Flex, useChakraContext } from "@chakra-ui/react";
 import { MAP } from "@/models/map-data";
 import {
@@ -26,6 +26,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   const { theme } = useTheme();
   const chakra = useChakraContext();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [refresh,setRefresh]=useState(0)
   const { 
     areaLevelMap, 
     setAreaLevelMap, 
@@ -155,7 +156,7 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
       }
     ctx.restore();
     }
-  }, [areaLevelMap, canvasPadding, chakra, scale, stickers, theme]);
+  }, [areaLevelMap, canvasPadding, chakra, scale, stickers, theme, refresh]);
 
   const handleCanvasClick = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -245,6 +246,29 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
   useEffect(() => {
     draw();
   }, [draw]);
+
+  useEffect(() => {
+    let mounted = true;
+    const fontFamily = 'JiaLiDaYuanJ';
+    const fontSize = '14px';
+
+    if (document.fonts && document.fonts.check) {
+      if (document.fonts.check(`${fontSize} ${fontFamily}`)) {
+        return;
+      }
+    }
+
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load(`${fontSize} ${fontFamily}`)
+        .then(() => {
+          if (mounted) {
+            setRefresh(prev => prev + 1);
+          }
+        })
+    }
+
+    return () => { mounted = false; };
+  }, []); 
 
   return (
     <Flex flex="1" direction="row" align={align ?? "center"} justifyContent="center">

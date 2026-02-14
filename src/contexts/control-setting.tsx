@@ -8,8 +8,10 @@ interface ControlSettingContextType {
   setLevel: React.Dispatch<React.SetStateAction<number>>;
   region: string;
   setRegion: React.Dispatch<React.SetStateAction<string>>;
-  selectedEmoji: EmojiClickData | null;
+  selectedEmoji: EmojiClickData | null ;
   setSelectedEmoji: React.Dispatch<React.SetStateAction<EmojiClickData | null>>;
+  specialDisplay: number;
+  setSpecialDisplay: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const ControlSettingContext = createContext<ControlSettingContextType>({
@@ -21,6 +23,8 @@ export const ControlSettingContext = createContext<ControlSettingContextType>({
   setRegion: () => {},
   selectedEmoji: null,
   setSelectedEmoji: () => {},
+  specialDisplay: 0,
+  setSpecialDisplay: () => {},
 });
 
 export const ControlSettingContextProvider: React.FC<PropsWithChildren> = ({
@@ -30,6 +34,7 @@ export const ControlSettingContextProvider: React.FC<PropsWithChildren> = ({
   const [region, setRegion] = useState<string>("minhang");
   const [level, setLevel] = useState(0);
   const [bgHue, setBgHue] = useState<number>(Math.random() * 360);
+  const [specialDisplay,setSpecialDisplay]=useState(0);
 
   const value = {
     selectedEmoji,
@@ -39,7 +44,9 @@ export const ControlSettingContextProvider: React.FC<PropsWithChildren> = ({
     level,
     setLevel,
     bgHue,
-    setBgHue
+    setBgHue,
+    specialDisplay,
+    setSpecialDisplay,
   };
 
   return (

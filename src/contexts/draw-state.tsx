@@ -8,7 +8,7 @@ import { LEVELS } from "@/constants/rates";
 
 interface DrawStateContextType {
   stickers: EmojiSticker[];
-  addSticker: (emoji: string, x: number, y: number) => void;
+  addSticker: (emoji: string, url: string, x: number, y: number) => void;
   removeSticker: (id: string) => void;
   clearStickers: () => void;  
   areaLevelMap: Record<string, number>;
@@ -42,7 +42,7 @@ export const DrawStateContextProvider: React.FC<PropsWithChildren> = ({
   
 
   const addSticker = useCallback(
-    (emoji: string, x: number, y: number) => {
+    (emoji: string, url: string, x: number, y: number) => {
       setStickers((prev = []) => [
         ...prev,
         {
@@ -50,6 +50,7 @@ export const DrawStateContextProvider: React.FC<PropsWithChildren> = ({
             crypto.randomUUID?.() ??
             `${Date.now()}-${Math.round(Math.random() * 10000)}`,
           emoji,
+          url,
           x,
           y,
         },

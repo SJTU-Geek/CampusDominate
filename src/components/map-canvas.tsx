@@ -30,8 +30,9 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
     setAreaLevelMap, 
     stickers, 
     addSticker,
+    removeSticker,
   } = useContext(DrawStateContext);
-  const { selectedEmoji, level } = useContext(ControlSettingContext);
+  const { selectedEmoji, level, specialDisplay } = useContext(ControlSettingContext);
 
   const canvasSize = useMemo(() => {
     if (rotated) {
@@ -161,6 +162,36 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
           mapY = MAP.size[1] - t;
         }
         addSticker(selectedEmoji.emoji, mapX, mapY);
+        e.stopPropagation();
+        return;
+      }
+      if (specialDisplay){
+        let mapX = x / (dpr * scale) - canvasPadding;
+        let mapY = y / (dpr * scale) - canvasPadding;
+        if (rotated) {
+          let t = mapX;
+          mapX = mapY;
+          mapY = MAP.size[1] - t;
+        }
+        let distanceSquare = Infinity;
+        let stickerId = null;
+        for (const sticker of stickers) {
+          const dx = mapX - sticker.x;
+          const dy = mapY - sticker.y;
+          const distanceSquareCurrent = dx * dx + dy * dy;
+          if (distanceSquareCurrent<distanceSquare)
+          {
+            distanceSquare=distanceSquareCurrent;
+            stickerId=sticker.id;
+          }
+        }
+        if (distanceSquare<=16*16)
+        {
+          if (stickerId!=null)
+          {
+            removeSticker(stickerId)
+          }
+        }
         e.stopPropagation();
         return;
       }

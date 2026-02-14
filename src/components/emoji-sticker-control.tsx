@@ -5,10 +5,11 @@ import EmojiPicker, {
   EmojiClickData,
   Theme as EmojiPickerTheme,
   EmojiStyle,
+  SkinTones,
 } from "emoji-picker-react";
 import { Box, Button, Flex, FlexProps, IconButton, Popover, Portal, Span, Stack, Text } from "@chakra-ui/react";
 import { useTheme } from "next-themes";
-import { LuSmilePlus, LuX } from "react-icons/lu";
+import { LuSmilePlus, LuX, LuTrash2 } from "react-icons/lu";
 import { ControlSettingContext } from "@/contexts/control-setting";
 
 interface EmojiStickerControlProps {
@@ -16,7 +17,7 @@ interface EmojiStickerControlProps {
 }
 
 export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
-  const { selectedEmoji, setSelectedEmoji, bgHue } = useContext(ControlSettingContext);
+  const { selectedEmoji, setSelectedEmoji, bgHue, specialDisplay, setSpecialDisplay } = useContext(ControlSettingContext);
   const { theme } = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -49,6 +50,7 @@ export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
 
   const handleEmojiClick = (emojiData: EmojiClickData) => {
     setSelectedEmoji(emojiData);
+    setSpecialDisplay(0);
     setOpen(false);
   };
 
@@ -76,19 +78,27 @@ export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
   const handleStopPlacing = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setSelectedEmoji(null);
+    setSpecialDisplay(0);
     setOpen(false);
   };
 
+  const handleDeleteEmoji = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setSelectedEmoji(null);
+    setSpecialDisplay(1);
+    setOpen(false);
+  }
+
   return (
-    <Popover.Root 
-      open={open} 
+    <Popover.Root
+      open={open}
       onOpenChange={(e) => setOpen(e.open)}
       positioning={{ placement: props.rotated ? "left" : "top" }}
     >
       <Popover.Trigger asChild>
-        <Flex 
-          position="relative" 
-          width="48px" 
+        <Flex
+          position="relative"
+          width="48px"
           height="48px"
           align="center"
           justify="flex-end"
@@ -108,12 +118,15 @@ export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
           >
             <Span>
               {
-                selectedEmoji !== null ? 
-                  <Emoji unified={selectedEmoji.unified} size={26} emojiStyle={EmojiStyle.GOOGLE}/> : 
-                  <Stack direction="row" marginInline="20px">
-                    <LuSmilePlus size={24} />
-                    贴表情
-                  </Stack>
+                selectedEmoji !== null ?
+                  <Emoji unified={selectedEmoji.unified} size={26} emojiStyle={EmojiStyle.GOOGLE} /> : (
+                    specialDisplay == 1 ?
+                      <LuTrash2 /> :
+                      <Stack direction="row" marginInline="20px">
+                        <LuSmilePlus size={24} />
+                        贴表情
+                      </Stack>
+                  )
               }
             </Span>
           </IconButton>
@@ -121,14 +134,14 @@ export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
       </Popover.Trigger>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content 
-            width="auto" 
+          <Popover.Content
+            width="auto"
             borderWidth="1px"
             boxShadow="lg"
           >
             <Popover.Arrow />
-            <Popover.Body 
-              padding={0} 
+            <Popover.Body
+              padding={0}
               background="transparent"
               {...rotatedProps}
             >
@@ -157,6 +170,9 @@ export const EmojiStickerControl = (props: EmojiStickerControlProps) => {
                 <Stack mt="2" direction="row" justify="space-between" gap="2">
                   <Button size="sm" variant="outline" onClick={handleStopPlacing}>
                     停止贴表情
+                  </Button>
+                  <Button variant="outline" onClick={handleDeleteEmoji} >
+                    <LuTrash2 />
                   </Button>
                   <Button
                     size="sm"

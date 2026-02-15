@@ -9,6 +9,7 @@ import { LEVELS } from "@/constants/rates";
 import { DrawStateContext } from "@/contexts/draw-state";
 import { ControlSettingContext } from "@/contexts/control-setting";
 import { EmojiSticker } from "@/models/emoji";
+import { data } from "@/constants/data";
 
 interface MapCanvasProps {
   scale: number;
@@ -128,33 +129,32 @@ const MapCanvas: React.FC<MapCanvasProps> = ({
         ctx.fillText(text, x, y);
       }
     }
-    function getEmojiImage(emoji: EmojiSticker) {
-      const url = emoji.url;
-      const img = new Image();
-      // 关键：跨域配置（CDN 图片需要允许跨域，否则画布会污染）
-      img.crossOrigin = 'anonymous';
-      // 图片加载完成回调
-      // 加载失败回调
-      // 设置图片 URL（触发加载）
-      img.src = url;
-      return img;
-    }
     if (stickers.length) {
       ctx.save();
       for (const sticker of stickers) {
         const emojiSize = 32;
-        const emoji = getEmojiImage(sticker)
         const x = sticker.x + canvasPadding;
         const y = sticker.y + canvasPadding;
-        ctx.drawImage(
-          emoji,
-          x - emojiSize / 2, // 向左偏移一半宽度
-          y - emojiSize / 2, // 向上偏移一半高度
-          emojiSize, // 绘制宽度
-          emojiSize  // 绘制高度
-        );
+        const emoji = data.emoji.get(sticker.emoji)
+        if (emoji){
+          ctx.drawImage(
+            emoji,
+            x - emojiSize / 2,
+            y - emojiSize / 2,
+            emojiSize,
+            emojiSize
+          );
+        }
+        else{
+          const img=new Image()
+          img.src=sticker.url
+          img.onload=()=>{
+            data.emoji.set(sticker.emoji,img)
+            setRefresh(a=>a+1)
+          }
+        }
       }
-    ctx.restore();
+      ctx.restore();
     }
   }, [areaLevelMap, canvasPadding, chakra, scale, stickers, theme, refresh]);
 

@@ -9,12 +9,14 @@ interface RateSelectorProps {
   direction?: "v" | "h";
   alignSelf?: string;
   margin?: string;
+  scale: number;
 }
 
 const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
   absolute: true,
   wrap: false,
   direction: "v",
+  scale: 1,
 }) => {
   const { setSelectedEmoji, level, setLevel } = useContext(ControlSettingContext);
   const absoluteProps = props.absolute ? {
@@ -24,8 +26,8 @@ const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
   } : {};
 
   return (
-    <Box {...absoluteProps} alignSelf={props.alignSelf} margin={props.margin}>
-      <ButtonGroup size="lg" flexDirection={props.direction == "h" ? "row" : "column"} variant="outline" attached>
+    <Box {...absoluteProps} alignSelf={props.alignSelf} margin={props.margin} height={"100%"}>
+      <ButtonGroup height="100%" flexDirection={props.direction == "h" ? "row" : "column"} variant="outline" attached>
         {LEVELS.map((item, index) => (
           <Button
             key={item.color}
@@ -34,8 +36,7 @@ const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
               setSelectedEmoji(null);
               setLevel(index);
             }}
-            p={1}
-            height="auto"
+            height="100%"
             border="4px solid"
             borderColor={
               level === index ? `${item.color}.600` : "transparent"
@@ -46,12 +47,13 @@ const RateSelector: React.FC<RateSelectorProps> = ({ ...props } = {
                 : `${item.color}.subtle`
             }
             color={level === index ? "white" : `${item.color}.solid`}
-            fontSize="md"
-            padding="4px 8px"
+            fontSize={`clamp(8px, calc(20px * ${props.scale}), 16px)`}
+            px={`clamp(0px, calc(1rem * (${props.scale} - 0.5)), 0.5rem)`}
+            py={props.wrap ? `clamp(0px, calc(0.4rem * ${props.scale}), 0.5rem)` : "0px"}
             borderRadius="none"
           >
             {props.wrap ? (
-              <Box as="span" display="inline-block" textAlign="center" lineHeight="1.2rem">
+              <Box as="span" display="inline-block" textAlign="center" lineHeight={`clamp(0.8rem, calc(1.6rem * ${props.scale}), 1.2rem)`}>
                 {item.title.slice(0,2)}
                 <br />
                 {item.title.slice(2)}

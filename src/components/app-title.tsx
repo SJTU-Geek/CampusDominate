@@ -1,11 +1,15 @@
 import { Heading, Highlight, Center, Strong, HeadingProps } from "@chakra-ui/react";
 
-const AppTitle: React.FC<HeadingProps> = (props: HeadingProps) => {
+interface AppTitleProps {
+  fontScale: number;
+}
+
+const AppTitle: React.FC<AppTitleProps & HeadingProps> = (props: AppTitleProps & HeadingProps) => {
   return (
     <Heading 
       lineHeight="tall" 
       fontWeight={500} 
-      fontSize={40} 
+      fontSize={`clamp(0.2rem, calc(2rem * ${props.fontScale}), 2.5rem)`}
       fontFamily="LXGW Marker Gothic"
       {...props}
     >

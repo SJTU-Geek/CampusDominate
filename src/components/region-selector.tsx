@@ -15,6 +15,7 @@ const regions = createListCollection({
 interface RegionSelectorProps {
   pl?: number;
   rotated?: boolean;
+  scale: number;
 }
 
 export const RegionSelector = (props: RegionSelectorProps) => {
@@ -26,14 +27,19 @@ export const RegionSelector = (props: RegionSelectorProps) => {
   return (
     <Select.Root
       collection={regions}
-      width="130px"
+      width={`clamp(60px, calc(160px * ${props.scale}), 130px)`}
       value={[region]}
       onValueChange={(e) => setRegion(e.value[0])}
       positioning={{ placement: props.rotated ? "left" : "top" }}
     >
       <Select.HiddenSelect />
       <Select.Control>
-        <Select.Trigger paddingLeft={props.pl} fontSize={16} borderWidth="0">
+        <Select.Trigger 
+          paddingLeft={props.pl} 
+          minHeight={0} 
+          fontSize={`clamp(8px, calc(20px * ${props.scale}), 16px)`} 
+          borderWidth="0"
+        >
           <Select.ValueText placeholder="请选择校区" />
         </Select.Trigger>
         <Select.IndicatorGroup>
@@ -68,11 +74,13 @@ export const RegionSelectorWide = (props: RegionSelectorProps) => {
           select.getTriggerProps().onClick?.(e)
         }}
         variant="ghost"
-        padding="4px 12px"
-        px="2"
-        size="sm"
+        py="0px"
+        px={`clamp(4px, calc(20px * (${props.scale-0.5})), 12px)`}
       >
-        <FaMapMarkerAlt size={"20px"} />
+        <FaMapMarkerAlt style={{
+          width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+          height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+        }}/>
       </IconButton>
     )
   }

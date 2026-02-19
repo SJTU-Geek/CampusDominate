@@ -5,9 +5,10 @@ import { SettingControl } from "./setting-control";
 
 interface SettingControlProps {
   rotated?: boolean;
+  scale?: number;
 }
 
-export function ColorModeToggle(props:SettingControlProps) {
+export function ColorModeToggle(props: SettingControlProps) {
   const { theme, setTheme } = useTheme();
   const toggleColorMode: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -16,7 +17,12 @@ export function ColorModeToggle(props:SettingControlProps) {
   const rotatedProps = props.rotated ? {
     transform: "rotate(90deg)",
     transformOrigin: "center center",
-} : {};
+  } : {};
+  const scaleProps = props.scale ? {
+    width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+    height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+  } : {};
+  console.log(scaleProps);
   return (
     <IconButton
       variant="ghost"
@@ -24,7 +30,7 @@ export function ColorModeToggle(props:SettingControlProps) {
       onClick={toggleColorMode}
       {...rotatedProps}
     >
-      {theme === "light" ? <LuMoon /> : <LuSun />}
+      {theme === "light" ? <LuMoon style={scaleProps}/> : <LuSun style={scaleProps}/>}
     </IconButton>
   );
 }

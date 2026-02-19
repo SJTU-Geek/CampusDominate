@@ -6,6 +6,7 @@ import { DrawStateContext } from "@/contexts/draw-state";
 interface ResetControlProps {
   pl?: number;
   rotated?: boolean;
+  scale: number;
 }
 
 export function ResetControl(props: ResetControlProps) {
@@ -20,10 +21,16 @@ export function ResetControl(props: ResetControlProps) {
         <Button
           onClick={(e) => { e.stopPropagation(); }}
           variant="ghost"
-          padding="4px 12px"
+          py="0px"
+          px={`clamp(4px, calc(20px * (${props.scale-0.5})), 12px)`}
           paddingLeft={props.pl}
+          height="100%"
         >
-          <LuRefreshCw /> 重置
+          <LuRefreshCw style={{
+            width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+            height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+          }} />
+          <Text fontSize={`clamp(8px, calc(20px * ${props.scale}), 16px)`}>重置</Text>
         </Button>
       </Dialog.Trigger>
       <ResetDialogContent dialog={dialog} rotated={props.rotated} />
@@ -43,11 +50,15 @@ export function ResetControlWide(props: ResetControlProps) {
         <Button
           onClick={(e) => { e.stopPropagation(); }}
           variant="ghost"
-          padding="4px 12px"
+          py="0px"
+          px={`clamp(4px, calc(20px * (${props.scale-0.5})), 12px)`}
           paddingLeft={props.pl}
           {...rotatedProps}
         >
-          <LuRefreshCw />
+          <LuRefreshCw style={{
+            width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+            height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+          }}/>
         </Button>
       </Dialog.Trigger>
       <ResetDialogContent rotated={props.rotated} dialog={dialog} />

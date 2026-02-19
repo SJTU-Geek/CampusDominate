@@ -1,4 +1,4 @@
-import { Button, IconButton, useChakraContext } from "@chakra-ui/react";
+import { Button, IconButton, useChakraContext, Text } from "@chakra-ui/react";
 import { useCallback, useContext } from "react";
 import { LuCamera, LuShare, LuShare2 } from "react-icons/lu";
 import { useTheme } from "next-themes";
@@ -11,6 +11,7 @@ import { DrawStateContext } from "@/contexts/draw-state";
 interface ShareControlProps {
   pr?: number;
   rotated?: boolean;
+  scale: number;
 }
 
 function useShareControl() {
@@ -84,10 +85,16 @@ export const ShareControl = (props: ShareControlProps) => {
     <Button
       onClick={ handleScreenshot }
       variant="ghost"
-      padding="4px 12px"
+      py="0px"
+      px={`clamp(4px, calc(20px * (${props.scale-0.5})), 12px)`}
       paddingRight={props.pr}
+      height="100%"
     >
-      <LuShare2 /> 分享
+      <LuShare2 style={{
+        width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+        height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+      }} />
+      <Text fontSize={`clamp(8px, calc(20px * ${props.scale}), 16px)`}>分享</Text>
     </Button>
   );
 };
@@ -102,11 +109,15 @@ export const ShareControlWide = (props: ShareControlProps) => {
     <Button
       onClick={ handleScreenshot }
       variant="ghost"
-      padding="4px 12px"
+      py="0px"
+      px={`clamp(4px, calc(20px * (${props.scale-0.5})), 12px)`}
       paddingRight={props.pr}
       {...rotatedProps}
     >
-      <LuShare2 />
+      <LuShare2 style={{
+        width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+        height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+      }}/>
     </Button>
   );
 };

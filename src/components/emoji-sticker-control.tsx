@@ -14,6 +14,7 @@ import { ControlSettingContext } from "@/contexts/control-setting";
 
 interface EmojiStickerControlProps {
   rotated?: boolean;
+  scale: number;
 }
 
 export const EmojiStickerControl = (props: EmojiStickerControlProps) => {

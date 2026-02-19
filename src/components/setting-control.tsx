@@ -3,6 +3,7 @@ import { LuSettings } from "react-icons/lu";
 
 interface SettingControlProps {
   rotated?: boolean;
+  scale?: number;
 }
 
 export function SettingControl(props: SettingControlProps) {
@@ -11,7 +12,10 @@ export function SettingControl(props: SettingControlProps) {
     transform: "rotate(90deg)",
     transformOrigin: "center center",
   } : {};
-
+  const scaleProps = props.scale ? {
+    width: `clamp(16px, calc(24px * ${props.scale}), 20px)`, 
+    height: `clamp(16px, calc(24px * ${props.scale}), 20px)`
+  } : {};
   const onCloseButtonClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     dialog.setOpen(false);
     e.stopPropagation();
@@ -26,7 +30,7 @@ export function SettingControl(props: SettingControlProps) {
           padding="4px 12px"
           {...rotatedProps}
         >
-          <LuSettings/>
+          <LuSettings style={scaleProps}/>
         </IconButton>
       </Dialog.Trigger>
       <Portal>
